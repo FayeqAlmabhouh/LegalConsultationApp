@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/pageLayout"
+    tools:context=".MainPageHome.View.HomeFragment"
+    android:background="@color/nas"
+    >
+    <androidx.appcompat.widget.Toolbar
+        style="@style/toolBar"
+        >
+        <FrameLayout
+            style="@style/TollBarFrameStyle"
+            >
+            <TextView
+                style="@style/ToolBarTextStyle"
+                android:text="@string/mainPage"
+                />
+            <TextView
+                android:id="@+id/homeSerch"
+                style="@style/serchIcon"
+                />
+        </FrameLayout>
+    </androidx.appcompat.widget.Toolbar>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/HomeRecycleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textDirection="rtl"
+        android:layoutDirection="rtl"
+        android:scrollbars="none"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:padding="@dimen/_5sdp"
+        />
+</LinearLayout>

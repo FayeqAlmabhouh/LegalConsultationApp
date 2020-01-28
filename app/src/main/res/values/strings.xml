@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">تطبيق العيادة القانونية</string>
+    <string name="Hello">مرحباً</string>
+    <string name="LogIn">تسجيل الدخول</string>
+    <string name="EnterEmail">ادخل بريدك الألكتروني وكلمة المرور الخاصة بك لتتمكن من الدخول</string>
+    <string name="email">البريد الإلكتروني</string>
+    <string name="password">كلمة المرور</string>
+    <string name="reepetpassword">تأكيد كلمة المرور</string>
+
+    <string name="newAcount">مستخدم جديد</string>
+    <string name="forgetPassword">هل نسيت كلمة المرور</string>
+    <string name="logIn">دخول</string>
+    <string name="Skip"> تخطي</string>
+    <string name="userName">الاسم بالكامل</string>
+    <string name="phoneNumber">رقم الجوال </string>
+    <string name="havAcount">لديك حساب بلفعل؟ تسجيل دخول</string>
+    <string name="SinUp">تسجيل</string>
+    <string name="forgetpass">نسيت كلمة المرور</string>
+    <string name="enterYourEmail"> أدخل أيملك هنا </string>
+    <string name="emailExample">Example@gmail.com</string>
+
+
+    <string name="mainPage">الرئيسية</string>
+    <string name="favert">المفضلة</string>
+    <string name="exampeText">يُعرَّف التحكيم بأنه اتفاق أطراف علاقة قانونية معينة عقدية أو غير عقدية على أن يتم الفصل في المنازعة التي ثارت بينهم بالفعل أو التي يحتمل أن تثور ، عن طريق أشخاص يتم اختيارهم كمحكمين ، حيث يتولى الأطراف تحديد أشخاص المحكمين أو أن يعهدوا لهيئة تحكيم ، أو إحدى هيئات التحكيم الدائمة أن تتولى تنظيم عملية التحكيم وفقاً للقواعد أو اللوائح الخاصة بهذه الهيئات أو المراكز .</string>
+
+    <string name="ContactLawyer">تواصل مع المحامي</string>
+
+    <string name="ContactSon">سيتم التواصل معك من خلال مستشارينا القانونيين قريباً </string>
+    <string name="name">الإسم</string>
+    <string name="emailElc">الإيميل</string>
+    <string name="complaint">نص الشكوى</string>
+    <string name="send">إرسال</string>
+
+    <string name="RequestFreeAdvice">اطلب إستشارتك المجانية </string>
+    <string name="masegeText">نص الرسالة</string>
+    <string name="Search">بحث</string>
+    <string name="Changepass">تغيير كلمة المرور</string>
+    <string name="oldPass">كلمة المرور القديمة</string>
+    <string name="newPass">كلمة المرور الجديد</string>
+    <string name="ConfirmNewPass">تأكيد كلمة المرور</string>
+    <string name="OK">موافق</string>
+    <string name="EditeProfile">تعديل الصفحة الشخصية</string>
+    <string name="Save">حفظ</string>
+    <string name="postDitels">تفاصيل المقال</string>
+     
+
+
+</resources>

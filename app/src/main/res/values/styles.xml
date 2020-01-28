@@ -1,0 +1,177 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="pageLayout">
+         <item name="android:layout_width">match_parent</item>
+         <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textDirection">rtl</item>
+        <item name="android:layoutDirection">rtl</item>
+    </style>
+    <style name="splahText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/ge_ss_light</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
+    <style name="logInText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_marginTop">@dimen/_3sdp</item>
+    </style>
+
+    <style name="BoxStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/_10sdp</item>
+        <item name="android:layout_marginEnd">@dimen/_10sdp</item>
+        <item name="android:drawablePadding">@dimen/_3sdp</item>
+        <item name="android:layout_marginTop">@dimen/_10sdp</item>
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="android:fontFamily">@font/ge_ss_light</item>
+        <item name="android:textColor">@color/Black</item>
+        <item name="android:paddingBottom">@dimen/_10sdp</item>
+    </style>
+    <style name="forgatpassAndNewAcountLayout">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+
+        <item name="android:textColor">@color/dark_red</item>
+        <item name="android:textSize">@dimen/_13sdp</item>
+        <item name="android:fontFamily">@font/ge_ss_light</item>
+    </style>
+    <style name="ButtonStyle">
+        <item name="android:layout_width">@dimen/_290sdp</item>
+        <item name="android:layout_height">@dimen/_40sdp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:background">@drawable/button_des</item>
+        <item name="android:layout_marginTop">@dimen/_30sdp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/ge_ss_light</item>
+        <item name="android:textSize">@dimen/_19sdp</item>
+    </style>
+
+    <style name="skipStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawableEnd">@drawable/ic_arrow_back</item>
+        <item name="android:fontFamily">@font/ge_ss_light</item>
+        <item name="android:textSize">@dimen/_15sdp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_gravity">end</item>
+        <item name="android:layout_marginEnd">@dimen/_15sdp</item>
+        <item name="android:layout_marginTop">@dimen/_10sdp</item>
+        <item name="android:drawablePadding">@dimen/_10sdp</item>
+    </style>
+
+
+    <style name="toolbarStryle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/ge_ss_light</item>
+        <item name="android:textSize">@dimen/_20sdp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+
+    <style name="UnderLine">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/_1sdp</item>
+        <item name="android:background">@color/gray</item>
+        <item name="android:layout_marginEnd">@dimen/_10sdp</item>
+        <item name="android:layout_marginStart">@dimen/_10sdp</item>
+        <item name="android:layout_marginTop">@dimen/_15sdp</item>
+    </style>
+
+
+    <style name="toolBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <item name="android:textDirection">locale</item>
+        <item name="android:layoutDirection">locale</item>
+    </style>
+
+    <style name="pageTitleSylt">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginEnd">@dimen/_90sdp</item>
+        <item name="android:textSize">@dimen/_20sdp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/ge_ss_light</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="serchIcon">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawableEnd">@drawable/ic_search</item>
+        <item name="android:layout_gravity">end</item>
+        <item name="android:layout_marginTop">@dimen/_5sdp</item>
+
+    </style>
+
+    <style name="toolBarCoternrStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:textDirection">rtl</item>
+        <item name="android:layoutDirection">rtl</item>
+    </style>
+
+    <style name="viewTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/_5sdp</item>
+        <item name="android:fontFamily">@font/ge_ss_light</item>
+        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:textSize">@dimen/_15sdp</item>
+        <item name="android:padding">@dimen/_10sdp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="ToolBarTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/ge_ss_light</item>
+        <item name="android:textSize">@dimen/_20sdp</item>
+        <item name="android:layout_gravity">center_vertical|center_horizontal</item>
+    </style>
+
+    <style name="BackShape">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawableStart">@drawable/ic_forward_black_24dp</item>
+        <item name="android:layout_marginTop">@dimen/_25sdp</item>
+    </style>
+
+    <style name="TollBarFrameStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textDirection">rtl</item>
+        <item name="android:layoutDirection">rtl</item>
+    </style>
+
+
+
+
+</resources>
