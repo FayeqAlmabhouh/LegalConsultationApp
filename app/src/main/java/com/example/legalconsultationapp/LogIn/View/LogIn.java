@@ -12,8 +12,8 @@ import com.example.legalconsultationapp.R;
 
 public class LogIn extends AppCompatActivity implements ViewFunPrsenter {
 
-//    @BindView(R.id.logInForgetPass)
-//    TextView forgetPass;
+
+
 
 
     private TextView vForgetPass , vNewAcount, vSkip;
@@ -26,7 +26,6 @@ public class LogIn extends AppCompatActivity implements ViewFunPrsenter {
         setContentView(R.layout.log_in_activity);
 
         prsenter = new LogInPrsenter(this);
-
         vForgetPass = findViewById(R.id.logInForgetPass);
             vForgetPass.setOnClickListener(this::OnClick);
         vNewAcount = findViewById(R.id.logInNewUser);

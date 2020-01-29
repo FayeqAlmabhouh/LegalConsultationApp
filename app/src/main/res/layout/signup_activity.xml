@@ -97,7 +97,6 @@
             android:background="@null"
             android:textColorHint="@color/gray"
             android:fontFamily="@font/sf_regular"
-
             />
     </LinearLayout>
     <View

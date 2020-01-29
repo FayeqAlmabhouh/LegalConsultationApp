@@ -1,12 +1,9 @@
 package com.example.legalconsultationapp.AppUtils;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-
 import com.example.legalconsultationapp.MainPage.View.MainPage;
 import com.example.legalconsultationapp.Search.View.SearchActivity;
-
 import androidx.fragment.app.Fragment;
 
 public class ConstantPage {

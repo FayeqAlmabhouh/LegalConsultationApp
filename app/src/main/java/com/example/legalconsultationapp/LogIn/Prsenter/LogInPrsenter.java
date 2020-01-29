@@ -11,7 +11,6 @@ import com.example.legalconsultationapp.SignUp.View.Signup;
 
 public class LogInPrsenter {
 
-
     private Activity activity;
 
     public LogInPrsenter(Activity activity) {
@@ -32,4 +31,11 @@ public class LogInPrsenter {
     public   void SkipButoon (){
         ConstantPage.SkipButoon(activity);
     }
+
+
+
+
+
+
+
 }

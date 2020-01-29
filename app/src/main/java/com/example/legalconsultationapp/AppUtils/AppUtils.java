@@ -46,7 +46,7 @@ public class AppUtils {
             editText.setError(masg);
     }
 
-    private static boolean isEmailValid(String email) {
+    public static boolean isEmailValid(String email) {
         Pattern pattern;
         Matcher matcher;
         final String EMAIL_PATTERN =
@@ -58,12 +58,24 @@ public class AppUtils {
     }
 
 
-    private static boolean PaswordLengith (String passwor){
+    public static boolean PaswordLengith (String passwor){
         if (passwor.length() >= 6){
             return  true;
         }
         return false;
     }
+
+    public static boolean PasswordMatch (String OriginalPassword , String RepetPassword){
+        if (OriginalPassword.equals(RepetPassword))
+        {
+            return true;
+        }
+           return false;
+    }
+
+
+
+
     public static boolean cheakeUserData(EditText eEmail, EditText ePassword){
         boolean stat = true;
         String sEmail , sPassword;

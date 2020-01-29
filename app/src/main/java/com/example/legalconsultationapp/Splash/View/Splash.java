@@ -1,6 +1,7 @@
 package com.example.legalconsultationapp.Splash.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import butterknife.BindView;
 
 import android.os.Bundle;
 
