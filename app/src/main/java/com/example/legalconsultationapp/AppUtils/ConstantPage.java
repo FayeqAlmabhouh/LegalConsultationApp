@@ -8,7 +8,15 @@ import androidx.fragment.app.Fragment;
 
 public class ConstantPage {
 
-    public static Fragment localpage ;
+    private Fragment localpage ;
+
+    public Fragment getLocalpage() {
+        return localpage;
+    }
+
+    public void setLocalpage(Fragment localpage) {
+        this.localpage = localpage;
+    }
 
     public static void SkipButoon (Activity activity)
     {

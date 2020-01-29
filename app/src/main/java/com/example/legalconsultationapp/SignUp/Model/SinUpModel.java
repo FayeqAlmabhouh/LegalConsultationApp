@@ -1,4 +1,11 @@
 package com.example.legalconsultationapp.SignUp.Model;
 
-public class SinUpModel {
+public class SinUpModel{
+
+
+
+
+
+
+
 }

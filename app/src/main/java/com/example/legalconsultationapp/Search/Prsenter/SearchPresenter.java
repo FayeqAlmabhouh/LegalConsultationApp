@@ -9,26 +9,16 @@ import com.example.legalconsultationapp.MainPage.View.MainPage;
 
 import androidx.fragment.app.Fragment;
 
-public class SerchPrsenter{
+public class SearchPresenter {
 
     private Activity activity;
 
-    public SerchPrsenter(Activity activity) {
+    public SearchPresenter(Activity activity) {
         this.activity = activity;
     }
 
-    public void backButon (){
-
-        Fragment fragment = new ConstantPage().localpage;
+    public void backButon() {
+        Fragment fragment = new ConstantPage().getLocalpage();
         activity.finish();
-
-
-
-
-
-
-
     }
-
-
 }

@@ -14,7 +14,7 @@ public class FavertPresnter {
     }
 
     public void GoToSerchPage(){
-        ConstantPage.localpage = new FaveratFragment();
+        //ConstantPage.localpage = new FaveratFragment();
         ConstantPage.OpenSerchPage(context);
     }
 

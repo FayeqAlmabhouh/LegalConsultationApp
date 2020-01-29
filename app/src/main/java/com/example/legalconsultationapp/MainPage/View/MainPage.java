@@ -20,7 +20,7 @@ public class MainPage extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
 
 
-    private  MenuItem prevMenuItem;
+    private MenuItem prevMenuItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,33 +28,31 @@ public class MainPage extends AppCompatActivity {
         setContentView(R.layout.activity_main_page);
 
 
-
         bottomNavigationView = findViewById(R.id.nav_view);
 
-    bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
+        bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
 
-        if (savedInstanceState == null)
-        {
+        if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer,
                     new HomeFragment()).commit();
 
         }
     }
+
     private BottomNavigationView.OnNavigationItemSelectedListener navListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
             Fragment selectedFragment = null;
-            switch (menuItem.getItemId())
-            {
+            switch (menuItem.getItemId()) {
                 case R.id.nav_home:
-                    selectedFragment  = new HomeFragment();
-                break;
-                case  R.id.nav_faveret:
-                    selectedFragment  = new FaveratFragment();
+                    selectedFragment = new HomeFragment();
+                    break;
+                case R.id.nav_faveret:
+                    selectedFragment = new FaveratFragment();
                     break;
                 case R.id.nav_profile:
-                    selectedFragment  = new ProfileFragment();
+                    selectedFragment = new ProfileFragment();
                     break;
             }
             getSupportFragmentManager().beginTransaction().

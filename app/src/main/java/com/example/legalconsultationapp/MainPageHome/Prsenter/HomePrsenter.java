@@ -16,7 +16,7 @@ public class HomePrsenter{
     }
 
     public  void goToSerchPage(){
-        ConstantPage.localpage = new HomeFragment();
+        //ConstantPage.localpage = new HomeFragment();
         ConstantPage.OpenSerchPage(activity);
     }
 
