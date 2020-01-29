@@ -13,7 +13,6 @@ public class ConstantPage {
 
     public static Fragment localpage ;
 
-
     public static void SkipButoon (Activity activity)
     {
         Intent mainPage = new Intent();
@@ -21,15 +20,10 @@ public class ConstantPage {
         activity.startActivity(mainPage);
         activity.finish();
     }
-
     public static void  OpenSerchPage (Context activity)
     {
         Intent serchpage = new Intent();
         serchpage.setClass(activity, SearchActivity.class);
         activity.startActivity(serchpage);
-
     }
-
-
-
 }
