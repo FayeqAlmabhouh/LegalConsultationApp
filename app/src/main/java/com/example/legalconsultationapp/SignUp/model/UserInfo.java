@@ -1,4 +1,4 @@
-package com.example.legalconsultationapp.SignUp.Model;
+package com.example.legalconsultationapp.SignUp.model;
 
 public class UserInfo{
 

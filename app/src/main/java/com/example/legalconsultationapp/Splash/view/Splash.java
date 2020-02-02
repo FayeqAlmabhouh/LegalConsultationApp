@@ -12,10 +12,14 @@ public class Splash extends AppCompatActivity {
     private SplashPrsenter prsenter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_activity);
+       CallPrsenter();
+    }
+    private void CallPrsenter() {
         this.prsenter = new SplashPrsenter(this);
         prsenter.SplashTimer();
     }
+
 }

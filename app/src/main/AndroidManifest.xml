@@ -12,20 +12,42 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ProfilePage.View.EditeProfile"></activity>
-        <activity android:name=".ProfilePage.View.NewPassword" />
-        <activity android:name=".Search.View.SearchActivity" />
-        <activity android:name=".LawyerContents.View.RequestFreeAdvice" />
-        <activity android:name=".LawyerContents.View.ContactLawyer" />
-        <activity android:name=".Articles.View.PostDetiles" />
-        <activity android:name=".Articles.View.Post" />
-        <activity android:name=".MainPage.View.MainPage">
-
-        </activity>
-        <activity android:name=".LogIn.View.ForgetPassword" />
-        <activity android:name=".SignUp.View.Signup" />
-        <activity android:name=".LogIn.View.LogIn" />
-        <activity android:name=".Splash.view.Splash" >
+        <activity
+            android:name=".ProfilePage.View.EditeProfile"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ProfilePage.View.NewPassword"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Search.View.SearchActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LawyerContents.View.RequestFreeAdvice"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LawyerContents.View.ContactLawyer"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Articles.View.PostDetiles"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Articles.View.Post"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainPage.View.MainPage"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".LogIn.View.ForgetPassword"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SignUp.view.Signup"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LogIn.View.LogIn"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Splash.view.Splash"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

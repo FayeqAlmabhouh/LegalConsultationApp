@@ -1,24 +1,29 @@
-package com.example.legalconsultationapp.SignUp.Prsenter;
+package com.example.legalconsultationapp.SignUp.prsenter;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.widget.EditText;
 
 import com.example.legalconsultationapp.AppUtils.AppUtils;
 import com.example.legalconsultationapp.AppUtils.ConstantPage;
+import com.example.legalconsultationapp.Constant.ConstantVariable;
 import com.example.legalconsultationapp.LogIn.View.LogIn;
-import com.example.legalconsultationapp.SignUp.Model.UserInfo;
+import com.example.legalconsultationapp.SignUp.model.UserInfo;
+import com.hbb20.CountryCodePicker;
 
 public class SinUpPsenter {
 
-
     private Activity activity;
     private UserInfo userInfo;
+    private ConstantVariable constantVariable;
 
 
     public SinUpPsenter(Activity activity) {
         this.activity = activity;
         this.userInfo = new UserInfo();
+        this.constantVariable = new ConstantVariable();
     }
 
     public void GoBackToLogIn() {
@@ -28,22 +33,20 @@ public class SinUpPsenter {
         activity.finish();
     }
 
-    public void SkipButoon() {
+    public void GoToMainPage() {
         ConstantPage.SkipButoon(activity);
     }
 
     public boolean CheakeUserData
-            (EditText uname, EditText uEmail, EditText uPass, EditText uRpass, EditText uPhone) {
+            (EditText uname, EditText uEmail, EditText uPass, EditText uRpass, EditText uPhone, CountryCodePicker ccp) {
         boolean dataStae = true;
 
-        String sName, sEmail, sPass, sRpass, sPhon;
-
+        String sName, sEmail, sPass, sRpass, sPhon , FullphonNumber;
         sName = uname.getText().toString();
         sEmail = uEmail.getText().toString();
         sPass = uPass.getText().toString();
         sRpass = uRpass.getText().toString();
-        sPhon = uPhone.getText().toString();
-
+        sPhon =  uPhone.getText().toString();
         if (sName.isEmpty()) {
             AppUtils.setError(uname, "الأسم مطلوب ");
             dataStae = false;
@@ -74,12 +77,13 @@ public class SinUpPsenter {
             AppUtils.setError(uRpass, "يجب أن تتطابق كلمتي المرور ");
             dataStae = false;
         }
-        if (!(sPass.isEmpty() && sRpass.isEmpty())) {
+        if ((!sPass.isEmpty()) && (!sRpass.isEmpty())  ) {
             boolean passMatch = AppUtils.PasswordMatch(sPass, sRpass);
-            if (passMatch == true)
-                dataStae = true;
-            else
+            if (passMatch == false) {
+                AppUtils.setError(uRpass, "يجب أن تتطابق كلمتي المرور ");
                 dataStae = false;
+            } else
+                dataStae = true;
         }
         if (sPhon.isEmpty()) {
             AppUtils.setError(uPhone, "رقم الجوال مطلوب");
@@ -87,17 +91,24 @@ public class SinUpPsenter {
         }
 
         if (dataStae == true) {
-            this.SaveUserDat(sName, sEmail, sPass, sPhon);
+
+            FullphonNumber = ccp.getSelectedCountryCodeWithPlus() +sPhon;
+
+            userInfo.setuEmail(sEmail);
+            userInfo.setuName(sName);
+            userInfo.setuPhoneNumper(sPhon);
+            SaveUserData(userInfo);
         }
         return dataStae;
     }
 
-    private void SaveUserDat(String name, String email, String password, String phone) {
-        this.userInfo.setuName(name);
-        this.userInfo.setuEmail(email);
-        this.userInfo.setuPassword(password);
-        this.userInfo.setuPhoneNumper(phone);
+    public void SaveUserData(UserInfo userInfo) {
+        SharedPreferences saveUserData =
+                activity.getSharedPreferences(constantVariable.getSHARED_PREF_NAME(), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = saveUserData.edit();
+        editor.putString(constantVariable.getKey_User_Email(), userInfo.getuEmail());
+        editor.putString(constantVariable.getKey_User_Name(), userInfo.getuName());
+        editor.putString(constantVariable.getKey_User_PhoneNumper(), userInfo.getuPhoneNumper());
+        editor.apply();
     }
-
-
 }

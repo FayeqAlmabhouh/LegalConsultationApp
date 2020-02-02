@@ -42,8 +42,8 @@ public class AppUtils {
     }
 
 
-    public static void setError (EditText editText , String masg ){
-            editText.setError(masg);
+    public static void setError(EditText editText, String masg) {
+        editText.setError(masg);
     }
 
     public static boolean isEmailValid(String email) {
@@ -58,70 +58,53 @@ public class AppUtils {
     }
 
 
-    public static boolean PaswordLengith (String passwor){
-        if (passwor.length() >= 6){
-            return  true;
+    public static boolean PaswordLengith(String passwor) {
+        if (passwor.length() >= 6) {
+            return true;
         }
         return false;
     }
 
-    public static boolean PasswordMatch (String OriginalPassword , String RepetPassword){
-        if (OriginalPassword.equals(RepetPassword))
-        {
-            return true;
-        }
-           return false;
+    public static boolean PasswordMatch(String OriginalPassword, String RepetPassword) {
+        return OriginalPassword.equalsIgnoreCase(RepetPassword);
     }
 
 
-
-
-    public static boolean cheakeUserData(EditText eEmail, EditText ePassword){
+    public static boolean cheakeUserData(EditText eEmail, EditText ePassword) {
         boolean stat = true;
-        String sEmail , sPassword;
+        String sEmail, sPassword;
 
         sEmail = eEmail.getText().toString();
         sPassword = ePassword.getText().toString();
 
-        if(sEmail.isEmpty())
-        {
-            AppUtils.setError(eEmail,"Can't be empty");
+        if (sEmail.isEmpty()) {
+            AppUtils.setError(eEmail, "Can't be empty");
             stat = false;
         }
-        if (!(sEmail.isEmpty()))
-        {
+        if (!(sEmail.isEmpty())) {
             boolean cheakeEmailFormat = AppUtils.isEmailValid(sEmail);
-            if(cheakeEmailFormat == false){
-                AppUtils.setError(eEmail,"Enter Valid Email");
+            if (cheakeEmailFormat == false) {
+                AppUtils.setError(eEmail, "Enter Valid Email");
                 stat = false;
-            }else if (cheakeEmailFormat == true){
+            } else if (cheakeEmailFormat == true) {
                 stat = true;
             }
         }
-        if (sPassword.isEmpty())
-        {
-            AppUtils.setError(ePassword,"Can't be empty");
+        if (sPassword.isEmpty()) {
+            AppUtils.setError(ePassword, "Can't be empty");
             stat = false;
         }
-        if (!(sPassword.isEmpty())){
-            boolean passlength =   AppUtils.PaswordLengith(sPassword);
-            if(passlength == false){
-                AppUtils.setError(ePassword,"Password Length  is less than 6");
+        if (!(sPassword.isEmpty())) {
+            boolean passlength = AppUtils.PaswordLengith(sPassword);
+            if (passlength == false) {
+                AppUtils.setError(ePassword, "Password Length  is less than 6");
                 stat = false;
-            }else if (passlength == true){
+            } else if (passlength == true) {
                 stat = true;
             }
         }
         return stat;
     }
-
-
-
-
-
-
-
-
 
 
 }

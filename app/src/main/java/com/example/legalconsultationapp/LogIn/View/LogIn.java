@@ -21,14 +21,15 @@ public class LogIn extends AppCompatActivity implements ViewFunPrsenter {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.log_in_activity);
+
 
         ButterKnife.bind(this);
+        forgetBaas.setOnClickListener(this::OnClick);
 
-
-        setContentView(R.layout.log_in_activity);
         prsenter = new LogInPrsenter(this);
         vForgetPass = findViewById(R.id.logInForgetPass);
-            forgetBaas.setOnClickListener(this::OnClick);
+
         vNewAcount = findViewById(R.id.logInNewUser);
         vNewAcount.setOnClickListener(this::OnClick);
 
@@ -39,7 +40,7 @@ public class LogIn extends AppCompatActivity implements ViewFunPrsenter {
 
     @Override
     public void OnClick(View view) {
-        if (view == vForgetPass) {
+        if (view == forgetBaas) {
             prsenter.GotToForgetPass();
         }
         if (view == vNewAcount) {

@@ -8,9 +8,9 @@ import android.widget.TextView;
 
 import com.example.legalconsultationapp.R;
 import com.example.legalconsultationapp.Search.Prsenter.SearchPresenter;
-import com.example.legalconsultationapp.SignUp.Prsenter.SinUpViewFun;
+import com.example.legalconsultationapp.SignUp.prsenter.SinUpViewFun;
 
-public class SearchActivity extends AppCompatActivity implements SinUpViewFun {
+public class SearchActivity extends AppCompatActivity  {
 
     private TextView vBacckbu;
     private SearchPresenter prsenter;
@@ -36,7 +36,6 @@ public class SearchActivity extends AppCompatActivity implements SinUpViewFun {
         vBacckbu = findViewById(R.id.SBackBU);
     }
 
-    @Override
     public void OnClick(View view) {
         if (view == vBacckbu) {
             prsenter.backButon();
