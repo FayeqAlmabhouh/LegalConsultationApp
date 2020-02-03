@@ -6,8 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.legalconsultationapp.LogIn.Prsenter.ForgetPassPrsenter;
-import com.example.legalconsultationapp.LogIn.Prsenter.ViewFunPrsenter;
+import com.example.legalconsultationapp.LogIn.prsenter.ForgetPassPrsenter;
+import com.example.legalconsultationapp.LogIn.prsenter.ViewFunPrsenter;
 import com.example.legalconsultationapp.R;
 
 public class ForgetPassword extends AppCompatActivity implements ViewFunPrsenter {

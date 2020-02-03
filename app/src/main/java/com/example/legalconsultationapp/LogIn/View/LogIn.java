@@ -7,8 +7,8 @@ import butterknife.ButterKnife;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import com.example.legalconsultationapp.LogIn.Prsenter.LogInPrsenter;
-import com.example.legalconsultationapp.LogIn.Prsenter.ViewFunPrsenter;
+import com.example.legalconsultationapp.LogIn.prsenter.LogInPrsenter;
+import com.example.legalconsultationapp.LogIn.prsenter.ViewFunPrsenter;
 import com.example.legalconsultationapp.R;
 public class LogIn extends AppCompatActivity implements ViewFunPrsenter {
 

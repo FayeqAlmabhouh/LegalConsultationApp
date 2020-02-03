@@ -1,4 +1,4 @@
-package com.example.legalconsultationapp.LogIn.Prsenter;
+package com.example.legalconsultationapp.LogIn.prsenter;
 
 import android.app.Activity;
 import android.content.Intent;
