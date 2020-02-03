@@ -39,4 +39,42 @@ public class ViewHolder {
     protected CountryCodePicker ccp;
     @BindView(R.id.SinUpBu)
     protected Button sinUpButton;
+
+    public TextView getvSkipBu() {
+        return vSkipBu;
+    }
+
+    public TextView getHaveAcount() {
+        return haveAcount;
+    }
+
+    public EditText getUserEmail() {
+        return userEmail;
+    }
+
+    public EditText getUserName() {
+        return userName;
+    }
+
+    public EditText getUserPassword() {
+        return userPassword;
+    }
+
+    public EditText getCofirmPass() {
+        return cofirmPass;
+    }
+
+    public EditText getUserPhoneNumber() {
+        return userPhoneNumber;
+    }
+
+    public CountryCodePicker getCcp() {
+        return ccp;
+    }
+
+    public Button getSinUpButton() {
+        return sinUpButton;
+    }
+
+
 }

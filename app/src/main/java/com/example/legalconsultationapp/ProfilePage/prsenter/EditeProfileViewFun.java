@@ -1,4 +1,4 @@
-package com.example.legalconsultationapp.ProfilePage.Prsenter;
+package com.example.legalconsultationapp.ProfilePage.prsenter;
 
 import android.view.View;
 

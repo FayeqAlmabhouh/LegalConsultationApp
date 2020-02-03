@@ -1,4 +1,4 @@
-package com.example.legalconsultationapp.ProfilePage.View;
+package com.example.legalconsultationapp.ProfilePage.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 

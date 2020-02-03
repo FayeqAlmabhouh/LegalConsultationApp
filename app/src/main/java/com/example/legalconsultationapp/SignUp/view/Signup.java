@@ -22,7 +22,6 @@ public class Signup extends AppCompatActivity implements SinUpViewFun {
     private SinUpPsenter psenter;
     private ViewHolder viewHolder;
     private String sUserName, sUserEmail, sUserPassword, sUserComfiremPassword, sUserPoneNumber;
-    // private EditText eUserName,eUserEmail,eUserpassword,eUserComfirmPass,eUseerPonneNumber,euserPhoneNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,16 +33,14 @@ public class Signup extends AppCompatActivity implements SinUpViewFun {
 
     @Override
     public void OnClick(View view) {
+        getViewData();
         if (view == viewHolder.haveAcount)
             psenter.GoBackToLogIn();
         if (view == viewHolder.vSkipBu)
             psenter.GoToMainPage();
-        if (view == viewHolder.sinUpButton) {
-            boolean userFiled =
-                    this.psenter.CheakeUserData(viewHolder.userName, viewHolder.userEmail, viewHolder.userPassword, viewHolder.cofirmPass, viewHolder.userPhoneNumber, viewHolder.ccp);
-            if (userFiled == true)
-                this.psenter.GoToMainPage();
-        }
+        if (view == viewHolder.sinUpButton)
+          psenter.ChakeUserDataIsNotEmpty(sUserName,sUserEmail,sUserPassword,sUserComfiremPassword,sUserPoneNumber);
+
     }
 
     @Override
@@ -52,7 +49,14 @@ public class Signup extends AppCompatActivity implements SinUpViewFun {
         viewHolder.vSkipBu.setOnClickListener(this::OnClick);
         viewHolder.haveAcount.setOnClickListener(this::OnClick);
         viewHolder.sinUpButton.setOnClickListener(this::OnClick);
+        sUserName = viewHolder.userName.getText().toString();
+        sUserEmail = viewHolder.userEmail.getText().toString();
+        sUserPoneNumber = viewHolder.userPhoneNumber.getText().toString();
+        sUserPassword = viewHolder.userPassword.getText().toString();
+        sUserComfiremPassword = viewHolder.cofirmPass.getText().toString();
+
     }
+
     @Override
     public void CallPrsenter() {
         this.psenter = new SinUpPsenter(this);

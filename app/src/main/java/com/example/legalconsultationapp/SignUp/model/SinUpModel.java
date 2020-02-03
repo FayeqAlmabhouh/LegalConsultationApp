@@ -3,25 +3,37 @@ package com.example.legalconsultationapp.SignUp.model;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-public class SinUpModel {
-    private Context ctx;
-    private UserInfo userInfo;
-    private final String SHARED_PREF_NAME = "User Profile Dat";
-    private final String key_User_Email = "Email";
-    private final String key_User_Name = "Name";
-    private final String key_User_PhoneNumper = "phoneNumper";
+import com.example.legalconsultationapp.UserModel.UserInfo;
+import com.example.legalconsultationapp.Constant.ConstantVariable;
+import com.example.legalconsultationapp.DataBaseModel.DBOperation;
+import com.google.android.gms.tasks.Task;
 
-    public SinUpModel(Context ctx) {
-        this.ctx = ctx;
-        this.userInfo = new UserInfo();
+public class SinUpModel {
+
+    private ConstantVariable constantVariable;
+    private DBOperation dbOperation;
+
+    public SinUpModel() {
+        dbOperation = new DBOperation();
+        constantVariable = new ConstantVariable();
     }
 
-    public void SaveUserData(UserInfo userInfo) {
-        SharedPreferences saveUserData = ctx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+    public void SaveUserData(Context context, UserInfo userInfo) {
+        SharedPreferences saveUserData = context.getSharedPreferences(constantVariable.getSHARED_PREF_NAME(), Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = saveUserData.edit();
-        editor.putString(key_User_Email, userInfo.getuEmail());
-        editor.putString(key_User_Name, userInfo.getuName());
-        editor.putString(key_User_PhoneNumper, userInfo.getuPhoneNumper());
+        editor.putString(constantVariable.getKey_User_Email(), userInfo.getuEmail());
+        editor.putString(constantVariable.getKey_User_Name(), userInfo.getuName());
+        editor.putString(constantVariable.getKey_User_PhoneNumper(), userInfo.getuPhoneNumper());
         editor.apply();
     }
+
+    public Task CreateAccount(UserInfo userInfo) {
+        return dbOperation.CreateNewUsers(userInfo.getuEmail(), userInfo.getuPassword());
+    }
+
+    public Task SavDataToDataBase(UserInfo userInfo) {
+        return dbOperation.SaveUserDataInDB(userInfo);
+    }
+
+
 }

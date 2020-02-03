@@ -1,11 +1,10 @@
-package com.example.legalconsultationapp.ProfilePage.Prsenter;
+package com.example.legalconsultationapp.ProfilePage.prsenter;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 
 import com.example.legalconsultationapp.LogIn.View.LogIn;
-import com.example.legalconsultationapp.ProfilePage.View.ProfileFragment;
+import com.example.legalconsultationapp.ProfilePage.view.ProfileFragment;
 
 public class EditeProfilePrsenter{
 

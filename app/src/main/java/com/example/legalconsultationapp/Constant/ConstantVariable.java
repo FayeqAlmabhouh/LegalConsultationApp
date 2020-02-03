@@ -6,6 +6,21 @@ public class ConstantVariable {
     private final String key_User_Email = "Email";
     private final String key_User_Name = "Name";
     private final String key_User_PhoneNumper = "phoneNumper";
+    private final String DB_UserName = "UserName";
+    private final String DB_UserEmail = "Email";
+    private final String DB_UserPhoneNumber = "PhoneNumber";
+
+    public String getDB_UserName() {
+        return DB_UserName;
+    }
+
+    public String getDB_UserEmail() {
+        return DB_UserEmail;
+    }
+
+    public String getDB_UserPhoneNumber() {
+        return DB_UserPhoneNumber;
+    }
 
     public String getSHARED_PREF_NAME() {
         return SHARED_PREF_NAME;

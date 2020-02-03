@@ -1,4 +1,4 @@
-package com.example.legalconsultationapp.ProfilePage.View;
+package com.example.legalconsultationapp.ProfilePage.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,8 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.legalconsultationapp.ProfilePage.Prsenter.EditeProfilePrsenter;
-import com.example.legalconsultationapp.ProfilePage.Prsenter.EditeProfileViewFun;
+import com.example.legalconsultationapp.ProfilePage.prsenter.EditeProfilePrsenter;
+import com.example.legalconsultationapp.ProfilePage.prsenter.EditeProfileViewFun;
 import com.example.legalconsultationapp.R;
 
 public class EditeProfile extends AppCompatActivity implements EditeProfileViewFun {
