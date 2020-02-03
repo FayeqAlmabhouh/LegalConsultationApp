@@ -37,7 +37,7 @@
             android:name=".Articles.View.Post"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MainPage.View.MainPage"
+            android:name=".MainPage.view.MainPage"
             android:screenOrientation="portrait"></activity>
         <activity
             android:name=".LogIn.View.ForgetPassword"

@@ -19,19 +19,19 @@ public class FaveratFragment extends Fragment implements FavertViewFun {
     private TextView vFaveratSerch;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
-        View root =  inflater.inflate(R.layout.faverat_fragment, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.faverat_fragment, container, false);
 
         presnter = new FavertPresnter(root.getContext());
 
-            vFaveratSerch = root.findViewById(R.id.FavertSerch);
-                vFaveratSerch.setOnClickListener(this::OnClick);
-        return  root;
+        vFaveratSerch = root.findViewById(R.id.FavertSerch);
+        vFaveratSerch.setOnClickListener(this::OnClick);
+        return root;
     }
+
     @Override
     public void OnClick(View view) {
-        if (view == vFaveratSerch)
-        {
+        if (view == vFaveratSerch) {
             presnter.GoToSerchPage();
         }
     }

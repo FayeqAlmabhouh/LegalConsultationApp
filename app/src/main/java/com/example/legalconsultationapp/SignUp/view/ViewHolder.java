@@ -14,11 +14,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ViewHolder {
+
     private Activity view;
 
     public ViewHolder(Activity view) {
         this.view = view;
-        ButterKnife.bind(this, view);
+        ButterKnife.bind(this, this.view);
     }
 
     @BindView(R.id.SinUpSkip)

@@ -2,22 +2,21 @@ package com.example.legalconsultationapp.AppUtils;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.view.View;
 import android.widget.EditText;
-
-import com.example.legalconsultationapp.LogIn.View.LogIn;
-import com.example.legalconsultationapp.MainPage.View.MainPage;
-import com.example.legalconsultationapp.R;
-import com.example.legalconsultationapp.Search.View.SearchActivity;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import cc.cloudist.acplibrary.ACProgressConstant;
+import cc.cloudist.acplibrary.ACProgressFlower;
+
 public class AppUtils {
+
+    private static ACProgressFlower dialog;
+
 
     public static boolean checkConnection(Activity context) {
         boolean flag = false;
@@ -104,6 +103,18 @@ public class AppUtils {
             }
         }
         return stat;
+    }
+
+    public static void ShowDiload(Activity activity) {
+        dialog = new ACProgressFlower.Builder(activity)
+                .direction(ACProgressConstant.DIRECT_ANTI_CLOCKWISE).themeColor(Color.WHITE)
+                .text("الرجاء الانتظار").fadeColor(Color.DKGRAY).build();
+        dialog.show();
+        dialog.dismiss();
+    }
+
+    public static void dialogDismiss() {
+        dialog.dismiss();
     }
 
 

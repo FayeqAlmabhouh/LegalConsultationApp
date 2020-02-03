@@ -1,4 +1,4 @@
-package com.example.legalconsultationapp.MainPage.View;
+package com.example.legalconsultationapp.MainPage.view;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,13 +7,16 @@ import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.legalconsultationapp.AppUtils.ConstantPage;
 import com.example.legalconsultationapp.FavoritePage.View.FaveratFragment;
+import com.example.legalconsultationapp.MainPage.presnter.MainPageFun;
 import com.example.legalconsultationapp.MainPageHome.View.HomeFragment;
 import com.example.legalconsultationapp.ProfilePage.view.ProfileFragment;
 import com.example.legalconsultationapp.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainPage extends AppCompatActivity {
+public class MainPage extends AppCompatActivity implements MainPageFun {
+
 
 
     private BottomNavigationView bottomNavigationView;
@@ -26,6 +29,11 @@ public class MainPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
 
+        if (ConstantPage.constantFragment == 2){
+            OpenProFilePage();
+            ConstantPage.constantFragment = 0;
+            return;
+        }
 
         bottomNavigationView = findViewById(R.id.nav_view);
 
@@ -60,6 +68,23 @@ public class MainPage extends AppCompatActivity {
         }
     };
 
+    @Override
+    public void OpenProFilePage() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer,
+                new ProfileFragment()).commit();
+    }
 
+    @Override
+    public void OpenHomePage() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer,
+                new HomeFragment()).commit();
+
+    }
+
+    @Override
+    public void OpenFavertPage() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer,
+                new FaveratFragment()).commit();
+    }
 }
 

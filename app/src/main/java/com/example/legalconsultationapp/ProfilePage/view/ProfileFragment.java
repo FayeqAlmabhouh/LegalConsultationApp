@@ -4,6 +4,7 @@ package com.example.legalconsultationapp.ProfilePage.view;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import butterknife.ButterKnife;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +25,7 @@ public class ProfileFragment extends Fragment implements ProfileViewFun {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.profile_fragment, container, false);
+        ButterKnife.bind(this, getActivity());
         CallPrsenter();
         CallVariable();
         return root;
@@ -39,9 +41,10 @@ public class ProfileFragment extends Fragment implements ProfileViewFun {
 
     @Override
     public void CallPrsenter() {
-        this.profilePrsenter = new ProfilePrsenter(getActivity());
-        this.userData = new UserPreferences(root.getContext());
-        this.viewProfileHolder = new ViewProfileHolder(root);
+        this.viewProfileHolder = new ViewProfileHolder(this.root);
+        this.profilePrsenter = new ProfilePrsenter(root.getContext());
+        this.userData = new UserPreferences(getContext());
+
     }
 
     @Override

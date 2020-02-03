@@ -3,10 +3,14 @@ package com.example.legalconsultationapp.ProfilePage.prsenter;
 import android.app.Activity;
 import android.content.Intent;
 
+import com.example.legalconsultationapp.AppUtils.ConstantPage;
 import com.example.legalconsultationapp.LogIn.View.LogIn;
+import com.example.legalconsultationapp.MainPage.view.MainPage;
 import com.example.legalconsultationapp.ProfilePage.view.ProfileFragment;
 
-public class EditeProfilePrsenter{
+import androidx.fragment.app.Fragment;
+
+public class EditeProfilePrsenter {
 
 
     private Activity activity;
@@ -15,18 +19,20 @@ public class EditeProfilePrsenter{
         this.activity = activity;
     }
 
-    public void BackToProfile (){
-        ProfileFragment profileFragment = new ProfileFragment();
+    public void BackToProfile() {
+
+        Fragment profilePage = new ProfileFragment();
+
         activity.finish();
+
     }
 
-    public void LogOut (){
+    public void LogOut() {
         Intent logInpage = new Intent();
         logInpage.setClass(activity, LogIn.class);
         activity.startActivity(logInpage);
 
     }
-
 
 
 }

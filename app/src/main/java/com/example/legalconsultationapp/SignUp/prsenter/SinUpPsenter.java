@@ -2,6 +2,7 @@ package com.example.legalconsultationapp.SignUp.prsenter;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.widget.Toast;
 
 import com.example.legalconsultationapp.UserModel.UserPreferences;
@@ -16,6 +17,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 import androidx.annotation.NonNull;
+import cc.cloudist.acplibrary.ACProgressConstant;
+import cc.cloudist.acplibrary.ACProgressFlower;
 
 public class SinUpPsenter {
 
@@ -25,6 +28,7 @@ public class SinUpPsenter {
     private ViewHolder viewHolder;
     private SinUpModel sinUpModel;
     private UserPreferences userPreferences;
+
 
 
     public SinUpPsenter(Activity activity) {
@@ -43,7 +47,7 @@ public class SinUpPsenter {
     }
 
     public void GoToMainPage() {
-        ConstantPage.SkipButoon(activity);
+        ConstantPage.OpenMainPage(activity);
     }
 
     private boolean CheakeUserData(UserInfo userInfo) {
@@ -108,32 +112,38 @@ public class SinUpPsenter {
         String FullphonNumber;
         boolean userData = CheakeUserData(userInfo);
         if (userData == true) {
+            AppUtils.ShowDiload(activity);
             this.userInfo.setuPhoneNumper(viewHolder.getCcp().getFullNumberWithPlus() + phone);
             CreateAcount(this.userInfo);
-           return;
+            return;
         }
 
     }
-    private void CreateAcount (UserInfo userInfo){
+
+    private void CreateAcount(UserInfo userInfo) {
         Task task = sinUpModel.CreateAccount(userInfo);
         task.addOnCompleteListener(new OnCompleteListener() {
             @Override
             public void onComplete(@NonNull Task task) {
-                if (task.isSuccessful()){
+                if (task.isSuccessful()) {
+                    AppUtils.dialogDismiss();
+                    SaveUserData(userInfo);
                     GoToMainPage();
-                    Task  t = sinUpModel.SavDataToDataBase(userInfo);
-                    if (t.isSuccessful()){
+                    Task t = sinUpModel.SavDataToDataBase(userInfo);
+                    if (t.isSuccessful()) {
                         userPreferences.SaveUserData(userInfo);
                     }
-                }else{
-                    Toast.makeText(activity,task.getException().toString(),Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(activity, task.getException().toString(), Toast.LENGTH_LONG).show();
                 }
 
             }
         });
 
-
     }
+
+
+
 
 
 }

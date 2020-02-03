@@ -16,7 +16,7 @@ public class ViewProfileHolder {
 
     public ViewProfileHolder(View view) {
         this.view = view;
-        ButterKnife.bind(this, view);
+        ButterKnife.bind(this, this.view);
     }
 
     @BindView(R.id.profUserName)
@@ -30,7 +30,7 @@ public class ViewProfileHolder {
     @BindView(R.id.profilePagePgoneNumber)
     protected TextView phoneNumper;
     @BindView(R.id.profilePagePassword)
-    TextView editePassword;
+    protected TextView editePassword;
 
 
 

@@ -10,7 +10,7 @@ import com.example.legalconsultationapp.R;
 import com.example.legalconsultationapp.Search.Prsenter.SearchPresenter;
 import com.example.legalconsultationapp.SignUp.prsenter.SinUpViewFun;
 
-public class SearchActivity extends AppCompatActivity  {
+public class SearchActivity extends AppCompatActivity {
 
     private TextView vBacckbu;
     private SearchPresenter prsenter;

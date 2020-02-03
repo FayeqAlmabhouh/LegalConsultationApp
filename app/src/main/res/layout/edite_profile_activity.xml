@@ -12,8 +12,11 @@
             style="@style/TollBarFrameStyle"
             >
             <TextView
-                android:id="@+id/EditeProfileBackTOProfile"
-                style="@style/BackShape"
+                android:id="@+id/edie_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_forward_black_24dp"
+                android:layout_marginTop="@dimen/_25sdp"
                 />
             <TextView
                 style="@style/ToolBarTextStyle"

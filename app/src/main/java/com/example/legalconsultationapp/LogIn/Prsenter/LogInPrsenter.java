@@ -30,6 +30,6 @@ public class LogInPrsenter {
     }
 
     public void SkipButoon() {
-        ConstantPage.SkipButoon(activity);
+        ConstantPage.OpenMainPage(activity);
     }
 }
