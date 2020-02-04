@@ -15,7 +15,7 @@ import com.example.legalconsultationapp.R;
 public class EditeProfile extends AppCompatActivity implements EditeProfileViewFun {
 
 
-    private TextView  vbackTologIn;
+    private TextView vbackTologIn;
     private EditeProfilePrsenter prsenter;
 
 
@@ -26,23 +26,22 @@ public class EditeProfile extends AppCompatActivity implements EditeProfileViewF
 
         prsenter = new EditeProfilePrsenter(EditeProfile.this);
         vbackTologIn = findViewById(R.id.edie_back);
-            vbackTologIn.setOnClickListener(this::OnClick);
+        vbackTologIn.setOnClickListener(this::OnClick);
     }
+
     @Override
-    public void OnClick(View view){
-        if (view == vbackTologIn)
-        {
-         prsenter.BackToProfile();
+    public void OnClick(View view) {
+        if (view == vbackTologIn) {
+            prsenter.BackToProfile();
         }
     }
 
     public void OpenProFilePage() {
         MainPage mainPage = new MainPage();
         mainPage.OpenProFilePage();
-        Intent i = new Intent(this,MainPage.class);
+        Intent i = new Intent(this, MainPage.class);
         startActivity(i);
     }
-
 
 
 }

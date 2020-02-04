@@ -1,4 +1,4 @@
-package com.example.legalconsultationapp.AppUtils;
+package com.example.legalconsultationapp.Constant;
 
 import android.app.Activity;
 import android.content.Context;

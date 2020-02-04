@@ -33,5 +33,4 @@ public class ViewProfileHolder {
     protected TextView editePassword;
 
 
-
 }

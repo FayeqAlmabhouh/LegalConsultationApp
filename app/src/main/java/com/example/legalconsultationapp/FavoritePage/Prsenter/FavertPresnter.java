@@ -1,10 +1,8 @@
 package com.example.legalconsultationapp.FavoritePage.Prsenter;
 
-import android.app.Activity;
 import android.content.Context;
 
-import com.example.legalconsultationapp.AppUtils.ConstantPage;
-import com.example.legalconsultationapp.FavoritePage.View.FaveratFragment;
+import com.example.legalconsultationapp.Constant.ConstantPage;
 
 public class FavertPresnter {
 

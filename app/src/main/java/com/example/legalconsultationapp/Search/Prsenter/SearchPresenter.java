@@ -2,7 +2,7 @@ package com.example.legalconsultationapp.Search.Prsenter;
 
 import android.app.Activity;
 
-import com.example.legalconsultationapp.AppUtils.ConstantPage;
+import com.example.legalconsultationapp.Constant.ConstantPage;
 
 import androidx.fragment.app.Fragment;
 

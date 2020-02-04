@@ -3,9 +3,7 @@ package com.example.legalconsultationapp.ProfilePage.prsenter;
 import android.app.Activity;
 import android.content.Intent;
 
-import com.example.legalconsultationapp.AppUtils.ConstantPage;
 import com.example.legalconsultationapp.LogIn.View.LogIn;
-import com.example.legalconsultationapp.MainPage.view.MainPage;
 import com.example.legalconsultationapp.ProfilePage.view.ProfileFragment;
 
 import androidx.fragment.app.Fragment;

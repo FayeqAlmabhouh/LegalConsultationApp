@@ -2,16 +2,18 @@ package com.example.legalconsultationapp.ProfilePage.prsenter;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.widget.TextView;
 
-import com.example.legalconsultationapp.AppUtils.ConstantPage;
-import com.example.legalconsultationapp.ProfilePage.view.ProfileFragment;
+import com.example.legalconsultationapp.R;
 import com.example.legalconsultationapp.UserModel.UserPreferences;
 import com.example.legalconsultationapp.LogIn.View.LogIn;
 import com.example.legalconsultationapp.ProfilePage.model.UserProfileModel;
 import com.example.legalconsultationapp.ProfilePage.view.EditeProfile;
+
+import butterknife.ButterKnife;
 
 public class ProfilePrsenter {
 
@@ -34,16 +36,12 @@ public class ProfilePrsenter {
     }
 
     public void logOut() {
-        new AlertDialog.Builder(activity).setTitle("هل ترريد تسجيل الخروج ؟").
-                setPositiveButton("نعم", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        model.SinOut();
-                        userPreferences.logOut();
-                        Intent editePage = new Intent(activity, LogIn.class);
-                        activity.startActivity(editePage);
-                        ((Activity) activity).finish();
-                    }
-                }).setNegativeButton("لا", null).show();
+        model.SinOut();
+        userPreferences.logOut();
+        Intent editePage = new Intent(activity, LogIn.class);
+        activity.startActivity(editePage);
+        ((Activity) activity).finish();
     }
+
+
 }

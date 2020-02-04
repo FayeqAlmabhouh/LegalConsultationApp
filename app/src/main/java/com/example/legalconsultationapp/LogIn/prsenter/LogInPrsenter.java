@@ -3,7 +3,7 @@ package com.example.legalconsultationapp.LogIn.prsenter;
 import android.app.Activity;
 import android.content.Intent;
 
-import com.example.legalconsultationapp.AppUtils.ConstantPage;
+import com.example.legalconsultationapp.Constant.ConstantPage;
 import com.example.legalconsultationapp.LogIn.View.ForgetPassword;
 import com.example.legalconsultationapp.SignUp.view.Signup;
 

@@ -9,9 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toolbar;
 
-import com.example.legalconsultationapp.AppUtils.ConstantPage;
 import com.example.legalconsultationapp.MainPageHome.Prsenter.HomePrsenter;
 import com.example.legalconsultationapp.MainPageHome.Prsenter.HomeViewFun;
 import com.example.legalconsultationapp.R;

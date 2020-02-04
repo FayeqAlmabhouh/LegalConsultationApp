@@ -9,8 +9,8 @@ public interface ProfileViewFun {
     public  void CallPrsenter();
     public  void CallVariable();
     public  void OpenEditePage(View v);
-
-
+    public  void DialogClicic(View v);
+    public  void initDialog();
 
 
 }

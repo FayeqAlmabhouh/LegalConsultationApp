@@ -2,12 +2,11 @@ package com.example.legalconsultationapp.SignUp.prsenter;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.widget.Toast;
 
 import com.example.legalconsultationapp.UserModel.UserPreferences;
 import com.example.legalconsultationapp.AppUtils.AppUtils;
-import com.example.legalconsultationapp.AppUtils.ConstantPage;
+import com.example.legalconsultationapp.Constant.ConstantPage;
 import com.example.legalconsultationapp.Constant.ConstantVariable;
 import com.example.legalconsultationapp.LogIn.View.LogIn;
 import com.example.legalconsultationapp.SignUp.model.SinUpModel;
@@ -17,8 +16,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 import androidx.annotation.NonNull;
-import cc.cloudist.acplibrary.ACProgressConstant;
-import cc.cloudist.acplibrary.ACProgressFlower;
 
 public class SinUpPsenter {
 
