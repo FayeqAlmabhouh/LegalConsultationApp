@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.widget.Toast;
 
+import com.example.legalconsultationapp.UserModel.UserData;
 import com.example.legalconsultationapp.UserModel.UserPreferences;
 import com.example.legalconsultationapp.AppUtils.AppUtils;
 import com.example.legalconsultationapp.Constant.ConstantPage;
@@ -26,6 +27,7 @@ public class SinUpPsenter {
     private SinUpModel sinUpModel;
     private UserPreferences userPreferences;
 
+    private UserData userData;
 
 
     public SinUpPsenter(Activity activity) {
@@ -110,7 +112,8 @@ public class SinUpPsenter {
         boolean userData = CheakeUserData(userInfo);
         if (userData == true) {
             AppUtils.ShowDiload(activity);
-            this.userInfo.setuPhoneNumper(viewHolder.getCcp().getFullNumberWithPlus() + phone);
+            FullphonNumber = viewHolder.getCcp().getSelectedCountryCode() + phone;
+            this.userInfo.setuPhoneNumper(FullphonNumber);
             CreateAcount(this.userInfo);
             return;
         }
@@ -118,6 +121,7 @@ public class SinUpPsenter {
     }
 
     private void CreateAcount(UserInfo userInfo) {
+        initUserData();
         Task task = sinUpModel.CreateAccount(userInfo);
         task.addOnCompleteListener(new OnCompleteListener() {
             @Override
@@ -128,7 +132,7 @@ public class SinUpPsenter {
                     GoToMainPage();
                     Task t = sinUpModel.SavDataToDataBase(userInfo);
                     if (t.isSuccessful()) {
-                        userPreferences.SaveUserData(userInfo);
+                        userPreferences.SaveUserData(userData);
                     }
                 } else {
                     Toast.makeText(activity, task.getException().toString(), Toast.LENGTH_LONG).show();
@@ -138,9 +142,10 @@ public class SinUpPsenter {
         });
 
     }
-
-
-
-
-
+    private void initUserData() {
+        userData = new UserData();
+        userData.setEmail(this.userInfo.getuEmail());
+        userData.setPhoneNumber(this.userInfo.getuPhoneNumper());
+        userData.setUserName(this.userInfo.getuName());
+    }
 }

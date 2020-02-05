@@ -33,4 +33,14 @@ public class ForgetPassword extends AppCompatActivity implements ViewFunPrsenter
 
 
     }
+
+    @Override
+    public void initOnStatrt() {
+
+    }
+
+    @Override
+    public void initVaripel() {
+
+    }
 }

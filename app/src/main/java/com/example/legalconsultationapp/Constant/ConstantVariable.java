@@ -10,6 +10,22 @@ public class ConstantVariable {
     private final String DB_UserEmail = "Email";
     private final String DB_UserPhoneNumber = "PhoneNumber";
 
+    private final String empty_email = "البريد الإكتروني مطلوب";
+    private final String empty_password = "كلمة السر مطلوبة";
+    private final  String noInternet = "لا يوجد أتصال بالإنترنت تحقق من الشبكة";
+
+    public String getNoInternet() {
+        return noInternet;
+    }
+
+    public String getEmpty_email() {
+        return empty_email;
+    }
+
+    public String getEmpty_password() {
+        return empty_password;
+    }
+
     public String getDB_UserName() {
         return DB_UserName;
     }

@@ -18,7 +18,7 @@ public class UserInfo {
     public UserInfo() {
     }
 
-    public String getuName() {
+    public String   getuName() {
         return uName;
     }
 

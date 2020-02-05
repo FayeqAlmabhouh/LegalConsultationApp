@@ -15,12 +15,12 @@ public class UserPreferences {
         this.context = context;
     }
 
-    public void SaveUserData(UserInfo userInfo) {
+    public void SaveUserData(UserData userData) {
         SharedPreferences saveUserData = context.getSharedPreferences(constantVariable.getSHARED_PREF_NAME(), Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = saveUserData.edit();
-        editor.putString(constantVariable.getKey_User_Email(), userInfo.getuEmail());
-        editor.putString(constantVariable.getKey_User_Name(), userInfo.getuName());
-        editor.putString(constantVariable.getKey_User_PhoneNumper(), userInfo.getuPhoneNumper());
+        editor.putString(constantVariable.getKey_User_Email(), userData.getEmail());
+        editor.putString(constantVariable.getKey_User_Name(), userData.getUserName());
+        editor.putString(constantVariable.getKey_User_PhoneNumper(), userData.getPhoneNumber());
         editor.apply();
     }
 
