@@ -1,8 +1,11 @@
 package com.example.legalconsultationapp.DataBaseModel;
 
+import android.app.Activity;
+
 import com.example.legalconsultationapp.UserModel.UserData;
 import com.example.legalconsultationapp.UserModel.UserInfo;
 import com.example.legalconsultationapp.Constant.ConstantVariable;
+import com.example.legalconsultationapp.UserModel.UserPreferences;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -12,12 +15,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+
 import java.util.Map;
 
 import androidx.annotation.NonNull;
+
 
 public class DBOperation {
 
@@ -26,14 +29,16 @@ public class DBOperation {
     private DatabaseReference dbReference;
     private ConstantVariable constantVariable;
     private FirebaseDatabase mDataBase;
+    private String name, email, phoneNumber;
+    private UserPreferences userPreferences;
+    private UserData userData;
 
     public DBOperation() {
         this.firebaseAuth = FirebaseAuth.getInstance();
-        this.dbReference = FirebaseDatabase.getInstance().getReference();
         this.constantVariable = new ConstantVariable();
         this.mDataBase = FirebaseDatabase.getInstance();
-
-
+        this.dbReference = FirebaseDatabase.getInstance().getReference();
+        this.userData = new UserData();
     }
 
     public static FirebaseUser IsUserHaveAcount() {
@@ -55,22 +60,30 @@ public class DBOperation {
         userData.put(constantVariable.getDB_UserName(), userInfo.getuName());
         userData.put(constantVariable.getDB_UserEmail(), userInfo.getuEmail());
         userData.put(constantVariable.getDB_UserPhoneNumber(), userInfo.getuPhoneNumper());
-        return dbReference.child("Users").child(id).setValue(userData);
+        userData.put(constantVariable.getDB_UserID(), this.id);
+        return dbReference.child(constantVariable.getDB_RootName()).child(id).setValue(userData);
     }
 
-    public void getUserDataFromDB(final DataStat dataStat) {
-        List<UserData> data = new ArrayList<>();
-        this.dbReference = mDataBase.getReference("Users");
-        this.dbReference.addValueEventListener(new ValueEventListener() {
+    public void Signout() {
+        firebaseAuth.signOut();
+    }
+
+    public void getUserdata(Activity activity) {
+        this.dbReference = FirebaseDatabase.getInstance().getReference().child(constantVariable.getDB_RootName());
+        userPreferences = new UserPreferences(activity);
+        this.id = firebaseAuth.getCurrentUser().getUid();
+        this.dbReference.child(this.id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                data.clear();
-                for (DataSnapshot keyNoad : dataSnapshot.getChildren()) {
-                    UserData userData = keyNoad.getValue(UserData.class);
-                    data.add(userData);
+                if (dataSnapshot.exists()) {
+                    name = dataSnapshot.child(constantVariable.getDB_UserName()).getValue().toString();
+                    email = dataSnapshot.child(constantVariable.getDB_UserEmail()).getValue().toString();
+                    phoneNumber = dataSnapshot.child(constantVariable.getDB_UserPhoneNumber()).getValue().toString();
+                    userData.setUserName(name);
+                    userData.setEmail(email);
+                    userData.setPhoneNumber(phoneNumber);
+                    userPreferences.SaveUserData(userData);
                 }
-                //dataStat.DataLoaded(data);
-
             }
 
             @Override
@@ -80,32 +93,8 @@ public class DBOperation {
         });
     }
 
-    public void Signout() {
-        firebaseAuth.signOut();
-    }
-
-
-    public UserData getUserdata() {
-        //this.id = firebaseAuth.getCurrentUser().getUid();
-        UserData userData = new UserData();
-        this.dbReference = mDataBase.getReference("Users").child(id);
-        dbReference.orderByChild("ID").equalTo(id)
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        for (DataSnapshot data : dataSnapshot.getChildren()) {
-                            userData.setEmail(data.child(constantVariable.getDB_UserEmail()).getValue().toString());
-                            userData.setUserName(data.child(constantVariable.getDB_UserName()).getValue().toString());
-                            userData.setPhoneNumber(data.child(constantVariable.getDB_UserPhoneNumber()).getValue().toString());
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-        return userData;
+    public Task ResetPass (String email){
+        return this.firebaseAuth.sendPasswordResetEmail(email);
     }
 
 

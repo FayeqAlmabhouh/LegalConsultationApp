@@ -6,6 +6,7 @@
     style="@style/pageLayout"
     android:background="@drawable/shaip"
 
+
     tools:context=".LogIn.View.LogIn">
     <FrameLayout
         android:layout_width="match_parent"

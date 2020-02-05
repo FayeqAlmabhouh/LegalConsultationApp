@@ -26,9 +26,8 @@ public class SinUpPsenter {
     private ViewHolder viewHolder;
     private SinUpModel sinUpModel;
     private UserPreferences userPreferences;
-
     private UserData userData;
-
+    private AppUtils appUtils;
 
     public SinUpPsenter(Activity activity) {
         this.activity = activity;
@@ -37,6 +36,7 @@ public class SinUpPsenter {
         this.viewHolder = new ViewHolder(activity);
         this.sinUpModel = new SinUpModel();
         this.userPreferences = new UserPreferences(activity);
+        this.appUtils = new AppUtils(this.activity);
     }
 
     public void GoBackToLogIn() {
@@ -52,44 +52,44 @@ public class SinUpPsenter {
     private boolean CheakeUserData(UserInfo userInfo) {
         boolean dataStae = true;
         if (userInfo.getuName().isEmpty()) {
-            AppUtils.setError(viewHolder.getUserName(), "الأسم مطلوب ");
+            appUtils.setError(viewHolder.getUserName(), "الأسم مطلوب ");
             dataStae = false;
         }
         if (userInfo.getuEmail().isEmpty()) {
-            AppUtils.setError(viewHolder.getUserEmail(), "البريد الإكتروني مطلوب");
+            appUtils.setError(viewHolder.getUserEmail(), "البريد الإكتروني مطلوب");
             dataStae = false;
         } else {
-            boolean emailValid = AppUtils.isEmailValid(userInfo.getuEmail());
+            boolean emailValid = appUtils.isEmailValid(userInfo.getuEmail());
             if (emailValid == false) {
-                AppUtils.setError(viewHolder.getUserEmail(), "تحقق من صحة البريد الإلكتروني ");
+                appUtils.setError(viewHolder.getUserEmail(), "تحقق من صحة البريد الإلكتروني ");
                 dataStae = false;
             } else
                 dataStae = true;
         }
         if (userInfo.getuPassword().isEmpty()) {
-            AppUtils.setError(viewHolder.getUserPassword(), "كلمة السر مطلوبة");
+            appUtils.setError(viewHolder.getUserPassword(), "كلمة السر مطلوبة");
             dataStae = false;
         } else {
             boolean chakePassLength = AppUtils.PaswordLengith(userInfo.getuPassword());
             if (chakePassLength == false) {
-                AppUtils.setError(viewHolder.getUserPassword(), "الرجاء أدخال كلمة سر أكثر من 6 أحرف");
+                appUtils.setError(viewHolder.getUserPassword(), "الرجاء أدخال كلمة سر أكثر من 6 أحرف");
                 dataStae = false;
             }
         }
         if (userInfo.getuComfarmpass().isEmpty()) {
-            AppUtils.setError(viewHolder.getCofirmPass(), "يجب أن تتطابق كلمتي المرور ");
+            appUtils.setError(viewHolder.getCofirmPass(), "يجب أن تتطابق كلمتي المرور ");
             dataStae = false;
         } else {
             boolean passMatch =
-                    AppUtils.PasswordMatch(userInfo.getuPassword(), userInfo.getuComfarmpass());
+                    appUtils.PasswordMatch(userInfo.getuPassword(), userInfo.getuComfarmpass());
             if (passMatch == false) {
-                AppUtils.setError(viewHolder.getCofirmPass(), "يجب أن تتطابق كلمتي المرور ");
+                appUtils.setError(viewHolder.getCofirmPass(), "يجب أن تتطابق كلمتي المرور ");
                 dataStae = false;
             } else
                 dataStae = true;
         }
         if (userInfo.getuPhoneNumper().isEmpty()) {
-            AppUtils.setError(viewHolder.getUserPhoneNumber(), "رقم الجوال مطلوب");
+            appUtils.setError(viewHolder.getUserPhoneNumber(), "رقم الجوال مطلوب");
             dataStae = false;
         }
 
@@ -111,37 +111,41 @@ public class SinUpPsenter {
         String FullphonNumber;
         boolean userData = CheakeUserData(userInfo);
         if (userData == true) {
-            AppUtils.ShowDiload(activity);
             FullphonNumber = viewHolder.getCcp().getSelectedCountryCode() + phone;
             this.userInfo.setuPhoneNumper(FullphonNumber);
             CreateAcount(this.userInfo);
             return;
         }
-
     }
 
     private void CreateAcount(UserInfo userInfo) {
-        initUserData();
-        Task task = sinUpModel.CreateAccount(userInfo);
-        task.addOnCompleteListener(new OnCompleteListener() {
-            @Override
-            public void onComplete(@NonNull Task task) {
-                if (task.isSuccessful()) {
-                    AppUtils.dialogDismiss();
-                    SaveUserData(userInfo);
-                    GoToMainPage();
-                    Task t = sinUpModel.SavDataToDataBase(userInfo);
-                    if (t.isSuccessful()) {
-                        userPreferences.SaveUserData(userData);
+        boolean checkInternet = appUtils.checkConnection();
+        if (checkInternet == true) {
+            appUtils.ShowDiload();
+            initUserData();
+            Task task = sinUpModel.CreateAccount(userInfo);
+            task.addOnCompleteListener(new OnCompleteListener() {
+                @Override
+                public void onComplete(@NonNull Task task) {
+                    if (task.isSuccessful()) {
+                        appUtils.dialogDismiss();
+                        SaveUserData(userInfo);
+                        GoToMainPage();
+                        Task t = sinUpModel.SavDataToDataBase(userInfo);
+                        if (t.isSuccessful()) {
+                            userPreferences.SaveUserData(userData);
+                        }
+                    } else {
+                        Toast.makeText(activity, task.getException().toString(), Toast.LENGTH_LONG).show();
                     }
-                } else {
-                    Toast.makeText(activity, task.getException().toString(), Toast.LENGTH_LONG).show();
-                }
 
-            }
-        });
+                }
+            });
+        } else
+            appUtils.SnackbareStyle(constantVariable.getNoInternet());
 
     }
+
     private void initUserData() {
         userData = new UserData();
         userData.setEmail(this.userInfo.getuEmail());

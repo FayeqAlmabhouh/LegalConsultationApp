@@ -68,6 +68,7 @@
             android:background="@null"
             android:textColorHint="@color/gray"
             android:text="0592092106"
+            android:maxLength="10"
             android:fontFamily="@font/sf_regular"
             />
     </LinearLayout>

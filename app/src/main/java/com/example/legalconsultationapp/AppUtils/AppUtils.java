@@ -5,7 +5,10 @@ import android.content.Context;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.view.View;
 import android.widget.EditText;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -15,15 +18,22 @@ import cc.cloudist.acplibrary.ACProgressFlower;
 
 public class AppUtils {
 
-    private static ACProgressFlower dialog;
+    private Activity activity;
+    private ACProgressFlower dialog;
+    private View snackbarView;
+    private Snackbar snackbar;
 
+    public AppUtils(Activity activity) {
+        this.activity = activity;
 
-    public static boolean checkConnection(Activity context) {
+    }
+
+    public boolean checkConnection() {
         boolean flag = false;
         ConnectivityManager connectivityManager;
         NetworkInfo info;
         try {
-            connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            connectivityManager = (ConnectivityManager) activity.getSystemService(Context.CONNECTIVITY_SERVICE);
             info = connectivityManager.getActiveNetworkInfo();
 
             if (info.getType() == ConnectivityManager.TYPE_WIFI) {
@@ -40,12 +50,11 @@ public class AppUtils {
         return flag;
     }
 
-
-    public static void setError(EditText editText, String masg) {
+    public void setError(EditText editText, String masg) {
         editText.setError(masg);
     }
 
-    public static boolean isEmailValid(String email) {
+    public boolean isEmailValid(String email) {
         Pattern pattern;
         Matcher matcher;
         final String EMAIL_PATTERN =
@@ -56,66 +65,35 @@ public class AppUtils {
         return matcher.matches();
     }
 
-
     public static boolean PaswordLengith(String passwor) {
-        if (passwor.length() >= 6) {
+        if (passwor.length() >= 6)
             return true;
-        }
         return false;
     }
 
-    public static boolean PasswordMatch(String OriginalPassword, String RepetPassword) {
+    public boolean PasswordMatch(String OriginalPassword, String RepetPassword) {
         return OriginalPassword.equalsIgnoreCase(RepetPassword);
     }
 
 
-    public static boolean cheakeUserData(EditText eEmail, EditText ePassword) {
-        boolean stat = true;
-        String sEmail, sPassword;
-
-        sEmail = eEmail.getText().toString();
-        sPassword = ePassword.getText().toString();
-
-        if (sEmail.isEmpty()) {
-            AppUtils.setError(eEmail, "Can't be empty");
-            stat = false;
-        }
-        if (!(sEmail.isEmpty())) {
-            boolean cheakeEmailFormat = AppUtils.isEmailValid(sEmail);
-            if (cheakeEmailFormat == false) {
-                AppUtils.setError(eEmail, "Enter Valid Email");
-                stat = false;
-            } else if (cheakeEmailFormat == true) {
-                stat = true;
-            }
-        }
-        if (sPassword.isEmpty()) {
-            AppUtils.setError(ePassword, "Can't be empty");
-            stat = false;
-        }
-        if (!(sPassword.isEmpty())) {
-            boolean passlength = AppUtils.PaswordLengith(sPassword);
-            if (passlength == false) {
-                AppUtils.setError(ePassword, "Password Length  is less than 6");
-                stat = false;
-            } else if (passlength == true) {
-                stat = true;
-            }
-        }
-        return stat;
-    }
-
-    public static void ShowDiload(Activity activity) {
+    public void ShowDiload() {
         dialog = new ACProgressFlower.Builder(activity)
                 .direction(ACProgressConstant.DIRECT_ANTI_CLOCKWISE).themeColor(Color.WHITE)
                 .text("الرجاء الانتظار").fadeColor(Color.DKGRAY).build();
         dialog.show();
+
+    }
+
+    public void dialogDismiss() {
         dialog.dismiss();
     }
 
-    public static void dialogDismiss() {
-        dialog.dismiss();
+    public void SnackbareStyle(String message) {
+        snackbar = Snackbar.make(activity.findViewById(android.R.id.content), message, Snackbar.LENGTH_LONG);
+        snackbar.setText(message);
+        snackbarView = snackbar.getView();
+        snackbarView.setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
+        snackbarView.setTextDirection(View.TEXT_DIRECTION_RTL);
+        snackbar.show();
     }
-
-
 }

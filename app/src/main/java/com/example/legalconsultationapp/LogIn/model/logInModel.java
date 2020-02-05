@@ -1,5 +1,7 @@
 package com.example.legalconsultationapp.LogIn.model;
 
+import android.app.Activity;
+
 import com.example.legalconsultationapp.DataBaseModel.DBOperation;
 import com.example.legalconsultationapp.UserModel.UserData;
 import com.google.android.gms.tasks.Task;
@@ -18,8 +20,11 @@ public class logInModel {
         return dbOperation.logIn(email, password);
     }
 
-    public UserData getUserData() {
-        return dbOperation.getUserdata();
+    public void getUserData(Activity activity) {
+         dbOperation.getUserdata(activity);
+    }
+    public Task resetPass (String email){
+        return dbOperation.ResetPass(email);
     }
 
 }

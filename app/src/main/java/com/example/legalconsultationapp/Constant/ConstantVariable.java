@@ -9,10 +9,26 @@ public class ConstantVariable {
     private final String DB_UserName = "UserName";
     private final String DB_UserEmail = "Email";
     private final String DB_UserPhoneNumber = "PhoneNumber";
-
+    private final String DB_RootName = "Users";
+    private final String passSendeItToEmail = "تم أرسال أعدادات كلمة اسر الى الايميل ";
     private final String empty_email = "البريد الإكتروني مطلوب";
     private final String empty_password = "كلمة السر مطلوبة";
-    private final  String noInternet = "لا يوجد أتصال بالإنترنت تحقق من الشبكة";
+    private final String noInternet = "لا يوجد أتصال بالإنترنت تحقق من الشبكة";
+
+
+    public String getPassSendeItToEmail() {
+        return passSendeItToEmail;
+    }
+
+    public String getDB_RootName() {
+        return DB_RootName;
+    }
+
+    public String getDB_UserID() {
+        return DB_UserID;
+    }
+
+    private final String DB_UserID = "ID";
 
     public String getNoInternet() {
         return noInternet;

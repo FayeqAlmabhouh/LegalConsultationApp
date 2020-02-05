@@ -14,33 +14,35 @@ import com.example.legalconsultationapp.R;
 
 public class EditeProfile extends AppCompatActivity implements EditeProfileViewFun {
 
-
-    private TextView vbackTologIn;
     private EditeProfilePrsenter prsenter;
-
+    private EditeProfileViewHolder viewHolder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edite_profile_activity);
+        iniOnStart();
 
-        prsenter = new EditeProfilePrsenter(EditeProfile.this);
-        vbackTologIn = findViewById(R.id.edie_back);
-        vbackTologIn.setOnClickListener(this::OnClick);
     }
 
     @Override
     public void OnClick(View view) {
-        if (view == vbackTologIn) {
-            prsenter.BackToProfile();
-        }
+
     }
 
-    public void OpenProFilePage() {
-        MainPage mainPage = new MainPage();
-        mainPage.OpenProFilePage();
-        Intent i = new Intent(this, MainPage.class);
-        startActivity(i);
+    @Override
+    public void iniOnStart() {
+        this.prsenter = new EditeProfilePrsenter(EditeProfile.this);
+        this.viewHolder = new EditeProfileViewHolder(this);
+
+    }
+
+    @Override
+    public void iniVariable() {
+        this.viewHolder.backToProfile.setOnClickListener(this::OnClick);
+        this.viewHolder.saveNewData.setOnClickListener(this::OnClick);
+
+
     }
 
 

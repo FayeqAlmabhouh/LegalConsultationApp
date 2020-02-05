@@ -7,15 +7,17 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
     <style name="pageLayout">
-         <item name="android:layout_width">match_parent</item>
-         <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
         <item name="android:orientation">vertical</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:textDirection">rtl</item>
         <item name="android:layoutDirection">rtl</item>
     </style>
+
     <style name="splahText">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -40,10 +42,11 @@
         <item name="android:drawablePadding">@dimen/_3sdp</item>
         <item name="android:layout_marginTop">@dimen/_10sdp</item>
         <item name="android:textColorHint">@color/gray</item>
-        <item name="android:fontFamily">@font/ge_ss_light</item>
+        <item name="android:fontFamily">@font/sf_light</item>
         <item name="android:textColor">@color/Black</item>
         <item name="android:paddingBottom">@dimen/_10sdp</item>
     </style>
+
     <style name="forgatpassAndNewAcountLayout">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -52,6 +55,7 @@
         <item name="android:textSize">@dimen/_13sdp</item>
         <item name="android:fontFamily">@font/ge_ss_light</item>
     </style>
+
     <style name="ButtonStyle">
         <item name="android:layout_width">@dimen/_290sdp</item>
         <item name="android:layout_height">@dimen/_40sdp</item>
@@ -170,8 +174,6 @@
         <item name="android:textDirection">rtl</item>
         <item name="android:layoutDirection">rtl</item>
     </style>
-
-
 
 
 </resources>

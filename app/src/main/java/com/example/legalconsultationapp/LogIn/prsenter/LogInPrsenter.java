@@ -9,6 +9,7 @@ import com.example.legalconsultationapp.Constant.ConstantVariable;
 import com.example.legalconsultationapp.LogIn.View.ForgetPassword;
 import com.example.legalconsultationapp.LogIn.View.logInViewHolder;
 import com.example.legalconsultationapp.LogIn.model.logInModel;
+import com.example.legalconsultationapp.R;
 import com.example.legalconsultationapp.SignUp.view.Signup;
 import com.example.legalconsultationapp.UserModel.UserPreferences;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -16,6 +17,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.NonNull;
+import androidx.core.view.ViewCompat;
 
 public class LogInPrsenter {
 
@@ -24,6 +26,7 @@ public class LogInPrsenter {
     private logInViewHolder viewHolder;
     private ConstantVariable constantVariable;
     private UserPreferences userPreferences;
+    private AppUtils appUtils;
 
     public LogInPrsenter(Activity activity) {
         this.activity = activity;
@@ -31,6 +34,7 @@ public class LogInPrsenter {
         this.viewHolder = new logInViewHolder(activity);
         this.constantVariable = new ConstantVariable();
         this.userPreferences = new UserPreferences(activity);
+        appUtils = new AppUtils(this.activity);
     }
 
     public void GotToForgetPass() {
@@ -51,42 +55,44 @@ public class LogInPrsenter {
 
     private boolean chakeUserData(String email, String pass) {
         boolean state = true;
-
         if (email.isEmpty()) {
-            AppUtils.setError(viewHolder.getEmail(), constantVariable.getEmpty_email());
+            appUtils.setError(viewHolder.getEmail(), constantVariable.getEmpty_email());
             state = false;
-        } else if (!(email.isEmpty()))
-            state = AppUtils.isEmailValid(email);
+        } else {
+            state = appUtils.isEmailValid(email);
+            if (state == false)
+                appUtils.setError(viewHolder.getEmail(), constantVariable.getEmpty_email());
+        }
         if (pass.isEmpty()) {
-            AppUtils.setError(viewHolder.getPassword(), constantVariable.getEmpty_password());
+            appUtils.setError(viewHolder.getPassword(), constantVariable.getEmpty_password());
             state = false;
         }
         return state;
     }
 
     public void SinInWithEmailandPassword(String email, String password) {
-        boolean cheakeUserDta = chakeUserData(email, password);
-        boolean ChakeInternetConection = AppUtils.checkConnection(activity);
-        if (ChakeInternetConection == false)
-            Snackbar.make(activity.findViewById(android.R.id.content), constantVariable.getNoInternet(), Snackbar.LENGTH_LONG).show();
-        if (cheakeUserDta && ChakeInternetConection == true) {
+        boolean CheckUserDta = chakeUserData(email, password);
+        boolean CheckeInternetConection = appUtils.checkConnection();
+        if (CheckeInternetConection == false)
+            appUtils.SnackbareStyle(constantVariable.getNoInternet());
+        if (CheckUserDta && CheckeInternetConection == true) {
+            appUtils.ShowDiload();
             Task task = logInModel.LogIn(email, password);
             task.addOnCompleteListener(new OnCompleteListener() {
                 @Override
                 public void onComplete(@NonNull Task task) {
                     if (task.isSuccessful()) {
+                        logInModel.getUserData(activity);
                         SkipButoon();
-                        //userPreferences.SaveUserData(logInModel.getUserData());
-
-                    }else
-                        Snackbar.make(activity.findViewById(android.R.id.content), "User Not Found", Snackbar.LENGTH_LONG).show();
 
 
+                    } else {
+                        appUtils.SnackbareStyle(task.getException().toString());
+                        appUtils.dialogDismiss();
+                    }
                 }
             });
 
-
-            userPreferences.SaveUserData(logInModel.getUserData());
 
         }
     }

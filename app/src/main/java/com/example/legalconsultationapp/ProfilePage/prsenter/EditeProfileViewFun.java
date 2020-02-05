@@ -4,7 +4,9 @@ import android.view.View;
 
 public interface EditeProfileViewFun{
 
-    public  void OnClick(View view);
+    void OnClick(View view);
+    void iniOnStart();
+    void iniVariable();
 
 
 }

@@ -9,6 +9,7 @@ import android.view.View;
 import com.example.legalconsultationapp.R;
 import com.example.legalconsultationapp.SignUp.prsenter.SinUpPsenter;
 import com.example.legalconsultationapp.SignUp.prsenter.SinUpViewFun;
+import com.google.android.material.snackbar.Snackbar;
 
 
 public class Signup extends AppCompatActivity implements SinUpViewFun {
@@ -37,6 +38,7 @@ public class Signup extends AppCompatActivity implements SinUpViewFun {
             psenter.GoToMainPage();
         if (view == viewHolder.sinUpButton)
             psenter.ChakeUserDataIsNotEmpty(sUserName, sUserEmail, sUserPassword, sUserComfiremPassword, sUserPoneNumber);
+
 
     }
 
