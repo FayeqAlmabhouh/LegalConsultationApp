@@ -13,11 +13,13 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
 import java.util.Map;
+import java.util.Objects;
 
 import androidx.annotation.NonNull;
 
@@ -83,6 +85,7 @@ public class DBOperation {
                     userData.setEmail(email);
                     userData.setPhoneNumber(phoneNumber);
                     userPreferences.SaveUserData(userData);
+
                 }
             }
 
@@ -93,8 +96,33 @@ public class DBOperation {
         });
     }
 
-    public Task ResetPass (String email){
+    public Task ResetPass(String email) {
         return this.firebaseAuth.sendPasswordResetEmail(email);
+    }
+
+
+    public void UpdateUserData(UserData userData) {
+        this.dbReference = FirebaseDatabase.getInstance().getReference().child(constantVariable.getDB_RootName());
+        Query editeQueryq = this.dbReference.orderByChild(constantVariable.getDB_RootName()).equalTo(getUserId());
+        editeQueryq.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot editedat : dataSnapshot.getChildren()) {
+                    editedat.getRef().child(constantVariable.getDB_UserName()).setValue(userData.getUserName());
+                    editedat.getRef().child(constantVariable.getDB_UserPhoneNumber()).setValue(userData.getPhoneNumber());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
+    private String getUserId() {
+        return this.id = firebaseAuth.getCurrentUser().getUid();
     }
 
 
