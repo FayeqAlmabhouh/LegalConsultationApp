@@ -14,7 +14,13 @@ public class ConstantVariable {
     private final String empty_email = "البريد الإكتروني مطلوب";
     private final String empty_password = "كلمة السر مطلوبة";
     private final String noInternet = "لا يوجد أتصال بالإنترنت تحقق من الشبكة";
+    private final String DB_UserID = "ID";
+    private final String updateSuccess = "تم تحديث البينات بنجاح";
 
+
+    public String getUpdateSuccess() {
+        return updateSuccess;
+    }
 
     public String getPassSendeItToEmail() {
         return passSendeItToEmail;
@@ -28,7 +34,7 @@ public class ConstantVariable {
         return DB_UserID;
     }
 
-    private final String DB_UserID = "ID";
+
 
     public String getNoInternet() {
         return noInternet;

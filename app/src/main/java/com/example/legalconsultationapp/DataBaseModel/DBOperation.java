@@ -2,6 +2,7 @@ package com.example.legalconsultationapp.DataBaseModel;
 
 import android.app.Activity;
 
+import com.example.legalconsultationapp.AppUtils.AppUtils;
 import com.example.legalconsultationapp.UserModel.UserData;
 import com.example.legalconsultationapp.UserModel.UserInfo;
 import com.example.legalconsultationapp.Constant.ConstantVariable;
@@ -13,13 +14,11 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
 import java.util.Map;
-import java.util.Objects;
 
 import androidx.annotation.NonNull;
 
@@ -34,6 +33,7 @@ public class DBOperation {
     private String name, email, phoneNumber;
     private UserPreferences userPreferences;
     private UserData userData;
+    private AppUtils appUtils;
 
     public DBOperation() {
         this.firebaseAuth = FirebaseAuth.getInstance();
@@ -85,7 +85,6 @@ public class DBOperation {
                     userData.setEmail(email);
                     userData.setPhoneNumber(phoneNumber);
                     userPreferences.SaveUserData(userData);
-
                 }
             }
 
@@ -100,25 +99,13 @@ public class DBOperation {
         return this.firebaseAuth.sendPasswordResetEmail(email);
     }
 
-
-    public void UpdateUserData(UserData userData) {
+    public Task UpdateUserData(UserData userData) {
+        Map<String, Object> newUserData = new HashMap<>();
+        newUserData.put(constantVariable.getDB_UserName(), userData.getUserName());
+        newUserData.put(constantVariable.getDB_UserPhoneNumber(), userData.getPhoneNumber());
         this.dbReference = FirebaseDatabase.getInstance().getReference().child(constantVariable.getDB_RootName());
-        Query editeQueryq = this.dbReference.orderByChild(constantVariable.getDB_RootName()).equalTo(getUserId());
-        editeQueryq.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot editedat : dataSnapshot.getChildren()) {
-                    editedat.getRef().child(constantVariable.getDB_UserName()).setValue(userData.getUserName());
-                    editedat.getRef().child(constantVariable.getDB_UserPhoneNumber()).setValue(userData.getPhoneNumber());
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
+        this.id = firebaseAuth.getCurrentUser().getUid();
+        return this.dbReference.child(this.id).updateChildren(newUserData);
     }
 
     private String getUserId() {

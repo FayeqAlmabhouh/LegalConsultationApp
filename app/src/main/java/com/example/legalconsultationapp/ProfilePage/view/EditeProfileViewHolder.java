@@ -14,17 +14,18 @@ import butterknife.ButterKnife;
 public class EditeProfileViewHolder {
 
     private Activity activity;
-
+    private String fullNumper;
     public EditeProfileViewHolder(Activity activity) {
         this.activity = activity;
-        ButterKnife.bind(this, activity);
+        ButterKnife.bind(this, this.activity);
+
     }
 
     @BindView(R.id.edie_back)
     protected TextView backToProfile;
     @BindView(R.id.editeProfileName)
     protected EditText userName;
-    @BindView(R.id.editeProfileccp)
+    @BindView(R.id.editeCCP)
     protected CountryCodePicker ccp;
     @BindView(R.id.editeProfilePhoneNumber)
     protected EditText userphone;

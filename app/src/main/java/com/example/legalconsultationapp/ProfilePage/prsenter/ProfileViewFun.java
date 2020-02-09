@@ -5,12 +5,19 @@ import android.view.View;
 public interface ProfileViewFun {
 
 
-    public void OnClick(View view);
-    public  void CallPrsenter();
-    public  void CallVariable();
-    public  void OpenEditePage(View v);
-    public  void DialogClicic(View v);
-    public  void initDialog();
+    void OnClick(View view);
+
+    void CallPrsenter();
+
+    void CallVariable();
+
+    void OpenEditePage(View v);
+
+    void DialogClicic(View v);
+
+    void initDialog();
+
+
 
 
 }

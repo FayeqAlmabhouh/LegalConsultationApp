@@ -32,7 +32,7 @@ public class LogIn extends AppCompatActivity implements ViewFunPrsenter {
     public void OnClick(View view) {
         initVaripel();
         if (view == viewHolder.skip)
-            prsenter.SkipButoon();
+            prsenter.MainPageButoon();
         else if (view == viewHolder.newUser)
             prsenter.GotToNewAcount();
         else if (view == viewHolder.forgetPass)
@@ -41,13 +41,11 @@ public class LogIn extends AppCompatActivity implements ViewFunPrsenter {
             prsenter.SinInWithEmailandPassword(email, pas);
 
     }
-
     @Override
     public void initOnStatrt() {
         prsenter = new LogInPrsenter(this);
         viewHolder = new logInViewHolder(this);
     }
-
     @Override
     public void initVaripel() {
         this.email = viewHolder.email.getText().toString();

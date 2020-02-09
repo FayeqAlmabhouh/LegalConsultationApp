@@ -1,7 +1,10 @@
 package com.example.legalconsultationapp.ProfilePage.model;
 
+import android.app.Activity;
+
 import com.example.legalconsultationapp.DataBaseModel.DBOperation;
 import com.example.legalconsultationapp.UserModel.UserData;
+import com.google.android.gms.tasks.Task;
 
 public class UserProfileModel {
 
@@ -16,9 +19,12 @@ public class UserProfileModel {
         dbOperation.Signout();
     }
 
-    public void UpdateUserData(UserData userData) {
-        dbOperation.UpdateUserData(userData);
+    public Task UpdateUserData(UserData userData) {
+        return dbOperation.UpdateUserData(userData);
     }
 
+    public void getUserData(Activity activity) {
+        dbOperation.getUserdata(activity);
+    }
 
 }

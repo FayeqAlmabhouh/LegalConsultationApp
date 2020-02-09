@@ -58,7 +58,6 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="محمد وليد "
                 android:textColor="@color/white"
                 android:fontFamily="@font/sf_regular"
                 android:textSize="@dimen/_27sdp"
@@ -69,7 +68,7 @@
         android:id="@+id/profilePageEmail"
         android:layout_marginTop="@dimen/_15sdp"
         style="@style/BoxStyle"
-        android:text="mohammed.waleed@gmail.com"
+
         android:drawableStart="@drawable/ic_email"
         android:drawableEnd="@drawable/ic_chevron_left"
         android:textAlignment="center"
@@ -81,10 +80,10 @@
         android:id="@+id/profilePagePassword"
         android:layout_marginTop="@dimen/_20sdp"
         style="@style/BoxStyle"
-        android:text="**********"
+        android:text="@string/change_pass"
         android:drawableStart="@drawable/ic_lock"
         android:drawableEnd="@drawable/ic_chevron_left"
-        android:textAlignment="center"
+        android:padding="@dimen/_2sdp"
         />
     <View
         style="@style/UnderLine"
@@ -93,7 +92,6 @@
         android:id="@+id/profilePagePgoneNumber"
         android:layout_marginTop="@dimen/_20sdp"
         style="@style/BoxStyle"
-        android:text="+95595456413"
         android:drawableStart="@drawable/ic_phone"
         android:drawableEnd="@drawable/ic_chevron_left"
         android:textAlignment="center"

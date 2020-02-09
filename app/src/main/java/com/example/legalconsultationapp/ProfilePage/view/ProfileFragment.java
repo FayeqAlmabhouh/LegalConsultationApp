@@ -8,15 +8,20 @@ import androidx.fragment.app.Fragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.legalconsultationapp.AppUtils.AppUtils;
 import com.example.legalconsultationapp.UserModel.UserPreferences;
 import com.example.legalconsultationapp.ProfilePage.prsenter.ProfilePrsenter;
 import com.example.legalconsultationapp.ProfilePage.prsenter.ProfileViewFun;
 import com.example.legalconsultationapp.R;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class ProfileFragment extends Fragment implements ProfileViewFun {
 
@@ -26,18 +31,32 @@ public class ProfileFragment extends Fragment implements ProfileViewFun {
     private View root;
     private Dialog dialog;
     private TextView dilogcalcel, dilogLogOut;
+    private AppUtils appUtils;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.profile_fragment, container, false);
-        ButterKnife.bind(this, getActivity());
+        ButterKnife.bind(this, getView());
+
         CallPrsenter();
         CallVariable();
         return root;
+
+
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+            appUtils.ShowDiload();
+            viewProfileHolder.vUserName.setText(userData.getUserName());
+            viewProfileHolder.vUserEmail.setText(userData.getUserEmail());
+            viewProfileHolder.phoneNumper.setText(userData.getUserPhone());
     }
 
     @Override
     public void OnClick(View view) {
+        CallPrsenter();
         if (view == viewProfileHolder.logOutBu)
             initDialog();
         else if (view == viewProfileHolder.editeProfile)
@@ -49,6 +68,8 @@ public class ProfileFragment extends Fragment implements ProfileViewFun {
         this.viewProfileHolder = new ViewProfileHolder(this.root);
         this.profilePrsenter = new ProfilePrsenter(root.getContext());
         this.userData = new UserPreferences(getContext());
+        this.appUtils = new AppUtils(getActivity());
+
 
     }
 
@@ -57,11 +78,8 @@ public class ProfileFragment extends Fragment implements ProfileViewFun {
         viewProfileHolder.logOutBu.setOnClickListener(this::OnClick);
         viewProfileHolder.editeProfile.setOnClickListener(this::OnClick);
         viewProfileHolder.editePassword.setOnClickListener(this::OnClick);
-        viewProfileHolder.vUserName.setText(userData.getUserName());
         viewProfileHolder.vUserName.setOnClickListener(this::OpenEditePage);
-        viewProfileHolder.vUserEmail.setText(userData.getUserEmail());
         viewProfileHolder.vUserEmail.setOnClickListener(this::OpenEditePage);
-        viewProfileHolder.phoneNumper.setText(userData.getUserPhone());
         viewProfileHolder.phoneNumper.setOnClickListener(this::OpenEditePage);
     }
 
@@ -89,4 +107,6 @@ public class ProfileFragment extends Fragment implements ProfileViewFun {
         dialog.show();
 
     }
+
+
 }

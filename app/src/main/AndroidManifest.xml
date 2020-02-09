@@ -4,8 +4,7 @@
     package="com.example.legalconsultationapp">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
-
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -15,9 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".ProfilePage.view.ChangePassActivity"></activity>
         <activity
             android:name=".ProfilePage.view.EditeProfile"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ProfilePage.view.NewPassword"
             android:screenOrientation="portrait" />
@@ -38,7 +38,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".MainPage.view.MainPage"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LogIn.View.ForgetPassword"
             android:screenOrientation="portrait" />
@@ -56,7 +56,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 

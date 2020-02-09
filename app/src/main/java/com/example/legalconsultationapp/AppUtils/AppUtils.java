@@ -81,7 +81,7 @@ public class AppUtils {
                 .direction(ACProgressConstant.DIRECT_ANTI_CLOCKWISE).themeColor(Color.WHITE)
                 .text("الرجاء الانتظار").fadeColor(Color.DKGRAY).build();
         dialog.show();
-
+        dialog.setCancelable(true);
     }
 
     public void dialogDismiss() {
@@ -96,4 +96,6 @@ public class AppUtils {
         snackbarView.setTextDirection(View.TEXT_DIRECTION_RTL);
         snackbar.show();
     }
+
+
 }

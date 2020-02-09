@@ -49,7 +49,7 @@ public class LogInPrsenter {
         activity.finish();
     }
 
-    public void SkipButoon() {
+    public void MainPageButoon() {
         ConstantPage.OpenMainPage(activity);
     }
 
@@ -82,10 +82,8 @@ public class LogInPrsenter {
                 @Override
                 public void onComplete(@NonNull Task task) {
                     if (task.isSuccessful()) {
-                        logInModel.getUserData(activity);
-                        SkipButoon();
-
-
+                        updateUserViewData ();
+                        MainPageButoon();
                     } else {
                         appUtils.SnackbareStyle(task.getException().toString());
                         appUtils.dialogDismiss();
@@ -97,5 +95,10 @@ public class LogInPrsenter {
         }
     }
 
+    public void updateUserViewData (){
+
+        logInModel.getUserData(activity);
+
+    }
 
 }

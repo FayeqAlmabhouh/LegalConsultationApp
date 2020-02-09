@@ -21,10 +21,14 @@ public class logInModel {
     }
 
     public void getUserData(Activity activity) {
-         dbOperation.getUserdata(activity);
+        dbOperation.getUserdata(activity);
     }
     public Task resetPass (String email){
         return dbOperation.ResetPass(email);
     }
+
+
+
+
 
 }

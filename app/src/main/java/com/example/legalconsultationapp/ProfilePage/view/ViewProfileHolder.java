@@ -14,10 +14,12 @@ public class ViewProfileHolder {
 
     private View view;
 
+
     public ViewProfileHolder(View view) {
         this.view = view;
         ButterKnife.bind(this, this.view);
     }
+
 
     @BindView(R.id.profUserName)
     protected TextView vUserName;

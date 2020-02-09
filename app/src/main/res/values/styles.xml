@@ -43,7 +43,7 @@
         <item name="android:layout_marginTop">@dimen/_10sdp</item>
         <item name="android:textColorHint">@color/gray</item>
         <item name="android:fontFamily">@font/sf_light</item>
-        <item name="android:textColor">@color/Black</item>
+        <item name="android:textColor">@color/gray</item>
         <item name="android:paddingBottom">@dimen/_10sdp</item>
     </style>
 
