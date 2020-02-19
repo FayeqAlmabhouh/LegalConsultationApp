@@ -1,22 +1,60 @@
 package com.example.legalconsultationapp.Constant;
 
 public class ConstantVariable {
-
     private final String SHARED_PREF_NAME = "User Profile Dat";
     private final String key_User_Email = "Email";
     private final String key_User_Name = "Name";
     private final String key_User_PhoneNumper = "phoneNumper";
-    private final String DB_UserName = "UserName";
-    private final String DB_UserEmail = "Email";
-    private final String DB_UserPhoneNumber = "PhoneNumber";
+    private final String DB_UserName = "name";
+    private final String DB_UserEmail = "email";
+    private final String DB_UserPhoneNumber = "phone";
     private final String DB_RootName = "Users";
+    private final String DB_UserID =   "userId";
     private final String passSendeItToEmail = "تم أرسال أعدادات كلمة اسر الى الايميل ";
     private final String empty_email = "البريد الإكتروني مطلوب";
     private final String empty_password = "كلمة السر مطلوبة";
     private final String noInternet = "لا يوجد أتصال بالإنترنت تحقق من الشبكة";
-    private final String DB_UserID = "ID";
     private final String updateSuccess = "تم تحديث البينات بنجاح";
+    private final String Password_Length = "الرجاء أدخال كلمة سر أكثر من 6 أحرف";
+    private final String Password_Mach = "يجب أن تتطابق كلمتي المرور";
+    private final String PasswordChange = "تم تغير كلمة المرور";
+    private final String old_Pass_wrong = "أدخل كلمة المرور الحالية خطأ";
+    private final String empty_name = " الأسم مطلوب";
+    private final String empty_numper = "رقم الجوال مطلوب   ";
+    private final String email_formatr = "تحقق من صحة البريد الإلكتروني";
+    private final String loading_masg = "الرجاء الانتظار";
 
+    public String getLoading_masg() {
+        return loading_masg;
+    }
+
+    public String getEmail_formatr() {
+        return email_formatr;
+    }
+
+    public String getEmpty_name() {
+        return empty_name;
+    }
+
+    public String getEmpty_numper() {
+        return empty_numper;
+    }
+
+    public String getOld_Pass_wrong() {
+        return old_Pass_wrong;
+    }
+
+    public String getPasswordChange() {
+        return PasswordChange;
+    }
+
+    public String getPassword_Mach() {
+        return Password_Mach;
+    }
+
+    public String getPassword_Length() {
+        return Password_Length;
+    }
 
     public String getUpdateSuccess() {
         return updateSuccess;
@@ -33,8 +71,6 @@ public class ConstantVariable {
     public String getDB_UserID() {
         return DB_UserID;
     }
-
-
 
     public String getNoInternet() {
         return noInternet;

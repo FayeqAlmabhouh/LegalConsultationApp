@@ -1,8 +1,6 @@
 package com.example.legalconsultationapp.SignUp.view;
 
 import android.app.Activity;
-import android.content.Context;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -41,14 +39,6 @@ public class ViewHolder {
     @BindView(R.id.SinUpBu)
     protected Button sinUpButton;
 
-    public TextView getvSkipBu() {
-        return vSkipBu;
-    }
-
-    public TextView getHaveAcount() {
-        return haveAcount;
-    }
-
     public EditText getUserEmail() {
         return userEmail;
     }
@@ -72,10 +62,4 @@ public class ViewHolder {
     public CountryCodePicker getCcp() {
         return ccp;
     }
-
-    public Button getSinUpButton() {
-        return sinUpButton;
-    }
-
-
 }

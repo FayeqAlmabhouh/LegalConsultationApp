@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.TextView;
 
+import com.example.legalconsultationapp.ProfilePage.view.ChangePassActivity;
 import com.example.legalconsultationapp.R;
 import com.example.legalconsultationapp.UserModel.UserPreferences;
 import com.example.legalconsultationapp.LogIn.View.LogIn;
@@ -41,6 +42,10 @@ public class ProfilePrsenter {
         Intent editePage = new Intent(activity, LogIn.class);
         activity.startActivity(editePage);
         ((Activity) activity).finish();
+    }
+    public void OpenChangePassword (){
+        Intent changepass = new Intent(activity, ChangePassActivity.class);
+        activity.startActivity(changepass);
     }
 
 

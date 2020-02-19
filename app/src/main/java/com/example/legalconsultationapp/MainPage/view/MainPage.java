@@ -29,11 +29,7 @@ public class MainPage extends AppCompatActivity implements MainPageFun {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
 
-        if (ConstantPage.constantFragment == 2){
-            OpenProFilePage();
-            ConstantPage.constantFragment = 0;
-            return;
-        }
+
 
         bottomNavigationView = findViewById(R.id.nav_view);
 

@@ -27,4 +27,13 @@ public class UserProfileModel {
         dbOperation.getUserdata(activity);
     }
 
+    public Task ChangePass(String newPass) {
+        return dbOperation.ChangePassword(newPass);
+    }
+
+    public Task CheakeOldPass(String email, String Pass) {
+        return dbOperation.PasswordCredential(email, Pass);
+    }
+
+
 }

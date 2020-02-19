@@ -8,6 +8,7 @@ import android.net.NetworkInfo;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.legalconsultationapp.Constant.ConstantVariable;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.regex.Matcher;
@@ -22,10 +23,11 @@ public class AppUtils {
     private ACProgressFlower dialog;
     private View snackbarView;
     private Snackbar snackbar;
+    private ConstantVariable constantVariable;
 
     public AppUtils(Activity activity) {
         this.activity = activity;
-
+        this.constantVariable = new ConstantVariable();
     }
 
     public boolean checkConnection() {
@@ -65,7 +67,7 @@ public class AppUtils {
         return matcher.matches();
     }
 
-    public static boolean PaswordLengith(String passwor) {
+    public boolean PaswordLengith(String passwor) {
         if (passwor.length() >= 6)
             return true;
         return false;
@@ -77,11 +79,10 @@ public class AppUtils {
 
 
     public void ShowDiload() {
-        dialog = new ACProgressFlower.Builder(activity)
+        this.dialog = new ACProgressFlower.Builder(activity)
                 .direction(ACProgressConstant.DIRECT_ANTI_CLOCKWISE).themeColor(Color.WHITE)
                 .text("الرجاء الانتظار").fadeColor(Color.DKGRAY).build();
         dialog.show();
-        dialog.setCancelable(true);
     }
 
     public void dialogDismiss() {

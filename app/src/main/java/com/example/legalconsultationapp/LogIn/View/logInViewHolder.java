@@ -17,7 +17,7 @@ public class logInViewHolder {
 
     public logInViewHolder(Activity activity) {
         this.activity = activity;
-        ButterKnife.bind(this,activity);
+        ButterKnife.bind(this,this.activity);
     }
 
     @BindView(R.id.logInEmail)

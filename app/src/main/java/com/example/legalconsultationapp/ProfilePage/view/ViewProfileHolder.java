@@ -32,7 +32,7 @@ public class ViewProfileHolder {
     @BindView(R.id.profilePagePgoneNumber)
     protected TextView phoneNumper;
     @BindView(R.id.profilePagePassword)
-    protected TextView editePassword;
+    protected TextView ChangePassword;
 
 
 }

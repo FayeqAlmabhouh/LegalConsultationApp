@@ -11,12 +11,7 @@ import androidx.fragment.app.Fragment;
 
 public class ConstantPage {
 
-    public ConstantPage() {
-    }
-
     private Fragment localpage;
-
-    public static int constantFragment = 0;
 
 
     public Fragment getLocalpage() {

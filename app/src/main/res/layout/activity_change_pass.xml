@@ -4,35 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/pageLayout"
     tools:context=".ProfilePage.view.ChangePassActivity">
-    <androidx.appcompat.widget.Toolbar
-        style="@style/toolBar">
+
+    <androidx.appcompat.widget.Toolbar style="@style/toolBar">
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textDirection="rtl"
             android:layoutDirection="rtl"
-            >
+            android:textDirection="rtl">
+
             <TextView
                 style="@style/ToolBarTextStyle"
-                android:text="@string/change_pass"
-                />
+                android:text="@string/change_pass" />
+
             <TextView
                 android:id="@+id/forgepassback"
-                style="@style/BackShape"
-                />
+                style="@style/BackShape" />
         </FrameLayout>
     </androidx.appcompat.widget.Toolbar>
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="@dimen/_90sdp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:padding="@dimen/_5sdp"
-        android:src="@drawable/redlogo"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/_50sdp"
-        />
-
+        android:padding="@dimen/_5sdp"
+        android:src="@drawable/redlogo" />
 
     <EditText
         android:id="@+id/newPassOld"
@@ -57,13 +56,11 @@
         android:gravity="right"
         android:hint="@string/reepetpassword"
         android:inputType="textPassword" />
+
     <Button
-        android:id="@+id/forgetPassBu"
+        android:id="@+id/changePassBU"
         style="@style/ButtonStyle"
-        android:text="@string/ok"
         android:layout_marginTop="@dimen/_50sdp"
-        />
-
-
+        android:text="@string/ok" />
 
 </LinearLayout>

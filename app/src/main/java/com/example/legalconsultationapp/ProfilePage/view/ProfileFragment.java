@@ -5,10 +5,8 @@ import android.app.Dialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,8 +18,6 @@ import com.example.legalconsultationapp.ProfilePage.prsenter.ProfilePrsenter;
 import com.example.legalconsultationapp.ProfilePage.prsenter.ProfileViewFun;
 import com.example.legalconsultationapp.R;
 
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class ProfileFragment extends Fragment implements ProfileViewFun {
 
@@ -48,10 +44,11 @@ public class ProfileFragment extends Fragment implements ProfileViewFun {
     @Override
     public void onStart() {
         super.onStart();
-            appUtils.ShowDiload();
-            viewProfileHolder.vUserName.setText(userData.getUserName());
-            viewProfileHolder.vUserEmail.setText(userData.getUserEmail());
-            viewProfileHolder.phoneNumper.setText(userData.getUserPhone());
+        viewProfileHolder.vUserName.setText(userData.getUserName());
+        viewProfileHolder.vUserEmail.setText(userData.getUserEmail());
+        viewProfileHolder.phoneNumper.setText(userData.getUserPhone());
+
+
     }
 
     @Override
@@ -61,6 +58,8 @@ public class ProfileFragment extends Fragment implements ProfileViewFun {
             initDialog();
         else if (view == viewProfileHolder.editeProfile)
             profilePrsenter.GoToEditepage();
+        else if (view == viewProfileHolder.ChangePassword)
+            profilePrsenter.OpenChangePassword();
     }
 
     @Override
@@ -69,18 +68,17 @@ public class ProfileFragment extends Fragment implements ProfileViewFun {
         this.profilePrsenter = new ProfilePrsenter(root.getContext());
         this.userData = new UserPreferences(getContext());
         this.appUtils = new AppUtils(getActivity());
-
-
     }
 
     @Override
     public void CallVariable() {
         viewProfileHolder.logOutBu.setOnClickListener(this::OnClick);
         viewProfileHolder.editeProfile.setOnClickListener(this::OnClick);
-        viewProfileHolder.editePassword.setOnClickListener(this::OnClick);
+        viewProfileHolder.ChangePassword.setOnClickListener(this::OnClick);
         viewProfileHolder.vUserName.setOnClickListener(this::OpenEditePage);
         viewProfileHolder.vUserEmail.setOnClickListener(this::OpenEditePage);
         viewProfileHolder.phoneNumper.setOnClickListener(this::OpenEditePage);
+
     }
 
     @Override
@@ -105,8 +103,5 @@ public class ProfileFragment extends Fragment implements ProfileViewFun {
         dilogcalcel = dialog.findViewById(R.id.dilog_cancel);
         dilogcalcel.setOnClickListener(this::DialogClicic);
         dialog.show();
-
     }
-
-
 }

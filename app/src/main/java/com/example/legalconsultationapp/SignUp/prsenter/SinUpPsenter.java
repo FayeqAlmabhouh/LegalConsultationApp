@@ -52,44 +52,44 @@ public class SinUpPsenter {
     private boolean CheakeUserData(UserInfo userInfo) {
         boolean dataStae = true;
         if (userInfo.getuName().isEmpty()) {
-            appUtils.setError(viewHolder.getUserName(), "الأسم مطلوب ");
+            appUtils.setError(viewHolder.getUserName(),  constantVariable.getEmpty_name());
             dataStae = false;
         }
         if (userInfo.getuEmail().isEmpty()) {
-            appUtils.setError(viewHolder.getUserEmail(), "البريد الإكتروني مطلوب");
+            appUtils.setError(viewHolder.getUserEmail(), constantVariable.getEmpty_email());
             dataStae = false;
         } else {
             boolean emailValid = appUtils.isEmailValid(userInfo.getuEmail());
             if (emailValid == false) {
-                appUtils.setError(viewHolder.getUserEmail(), "تحقق من صحة البريد الإلكتروني ");
+                appUtils.setError(viewHolder.getUserEmail(), constantVariable.getEmail_formatr());
                 dataStae = false;
             } else
                 dataStae = true;
         }
         if (userInfo.getuPassword().isEmpty()) {
-            appUtils.setError(viewHolder.getUserPassword(), "كلمة السر مطلوبة");
+            appUtils.setError(viewHolder.getUserPassword(), constantVariable.getEmpty_password());
             dataStae = false;
         } else {
-            boolean chakePassLength = AppUtils.PaswordLengith(userInfo.getuPassword());
+            boolean chakePassLength = appUtils.PaswordLengith(userInfo.getuPassword());
             if (chakePassLength == false) {
-                appUtils.setError(viewHolder.getUserPassword(), "الرجاء أدخال كلمة سر أكثر من 6 أحرف");
+                appUtils.setError(viewHolder.getUserPassword(), constantVariable.getPassword_Length());
                 dataStae = false;
             }
         }
         if (userInfo.getuComfarmpass().isEmpty()) {
-            appUtils.setError(viewHolder.getCofirmPass(), "يجب أن تتطابق كلمتي المرور ");
+            appUtils.setError(viewHolder.getCofirmPass(),  constantVariable.getPassword_Mach());
             dataStae = false;
         } else {
             boolean passMatch =
                     appUtils.PasswordMatch(userInfo.getuPassword(), userInfo.getuComfarmpass());
             if (passMatch == false) {
-                appUtils.setError(viewHolder.getCofirmPass(), "يجب أن تتطابق كلمتي المرور ");
+                appUtils.setError(viewHolder.getCofirmPass(),  constantVariable.getPassword_Mach());
                 dataStae = false;
             } else
                 dataStae = true;
         }
         if (userInfo.getuPhoneNumper().isEmpty()) {
-            appUtils.setError(viewHolder.getUserPhoneNumber(), "رقم الجوال مطلوب");
+            appUtils.setError(viewHolder.getUserPhoneNumber(), constantVariable.getEmpty_numper());
             dataStae = false;
         }
 

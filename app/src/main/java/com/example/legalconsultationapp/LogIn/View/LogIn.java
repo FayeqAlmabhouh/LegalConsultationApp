@@ -22,12 +22,13 @@ public class LogIn extends AppCompatActivity implements ViewFunPrsenter {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.log_in_activity);
         ButterKnife.bind(this);
+
         initOnStatrt();
+
         initVaripel();
 
 
     }
-
     @Override
     public void OnClick(View view) {
         initVaripel();
@@ -38,18 +39,18 @@ public class LogIn extends AppCompatActivity implements ViewFunPrsenter {
         else if (view == viewHolder.forgetPass)
             prsenter.GotToForgetPass();
         else if (view == viewHolder.logInBu)
-            prsenter.SinInWithEmailandPassword(email, pas);
+            prsenter.SinInWithEmailandPassword(viewHolder.email.getText().toString(), viewHolder.password.getText().toString());
 
     }
+
     @Override
     public void initOnStatrt() {
         prsenter = new LogInPrsenter(this);
         viewHolder = new logInViewHolder(this);
     }
+
     @Override
     public void initVaripel() {
-        this.email = viewHolder.email.getText().toString();
-        this.pas = viewHolder.password.getText().toString();
         viewHolder.logInBu.setOnClickListener(this::OnClick);
         viewHolder.forgetPass.setOnClickListener(this::OnClick);
         viewHolder.newUser.setOnClickListener(this::OnClick);
