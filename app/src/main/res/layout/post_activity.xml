@@ -1,67 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/pageLayout"
-    tools:context=".Articles.View.Post"
     android:background="@color/nas"
-    >
-    <androidx.appcompat.widget.Toolbar
-        style="@style/toolBar"
-        >
+    tools:context=".Articles.view.Post">
+
+    <androidx.appcompat.widget.Toolbar style="@style/toolBar">
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textDirection="rtl"
             android:layoutDirection="rtl"
-            >
+            android:textDirection="rtl">
+
             <TextView
                 style="@style/ToolBarTextStyle"
-                android:text="تحكيم محلي وإقليمي"
-                />
+                android:text="تحكيم محلي وإقليمي" />
+
             <TextView
                 android:id="@+id/postDitelsSkip"
-                style="@style/BackShape"
-                />
-            <TextView
-                style="@style/serchIcon"
-                />
+                style="@style/BackShape" />
+
+            <TextView style="@style/serchIcon" />
         </FrameLayout>
     </androidx.appcompat.widget.Toolbar>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/PostRecycleView"
-        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textDirection="rtl"
-        android:layoutDirection="rtl"
-        android:scrollbars="none"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
+        android:layout_marginStart="@dimen/_2sdp"
+        android:layout_marginEnd="@dimen/_2sdp"
+        android:layout_weight="1"
+        android:layoutDirection="rtl"
+        android:padding="@dimen/_1sdp"
+        android:scrollbars="none"
         android:textAlignment="center"
-        android:layout_marginTop="@dimen/_1sdp"
-        android:layout_marginEnd="@dimen/_10sdp"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:padding="@dimen/_5sdp"
-        />
+        android:textDirection="rtl"
+        tools:listitem="@layout/sup_categories_view" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_50sdp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:layoutDirection="rtl"
         android:orientation="horizontal"
-        android:layout_margin="@dimen/_5sdp"
-        android:background="?android:attr/windowBackground"
-        android:gravity="center_vertical"
-        android:layout_gravity="center_vertical">
+        android:textDirection="rtl">
+
         <ImageView
-            android:id="@+id/postCallLawyerBu"
-            android:layout_width="@dimen/_150sdp"
-            android:layout_height="match_parent"
-            android:src="@drawable/phon"/>
-        <ImageView
-            android:id="@+id/msgCallLawyerBu"
-            android:layout_width="@dimen/_150sdp"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
-            android:src="@drawable/masege"/>
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_weight="1"
+            android:src="@drawable/phone_imge" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_weight="1"
+            android:src="@drawable/mes_img" />
     </LinearLayout>
 </LinearLayout>

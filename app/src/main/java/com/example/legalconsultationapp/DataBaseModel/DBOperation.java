@@ -133,6 +133,11 @@ public class DBOperation {
 
     public DatabaseReference getCatogeryData() {
         return this.dbReference = FirebaseDatabase.getInstance().getReference().child("Categories");
-
     }
+
+    public DatabaseReference getSubCatogeryData() {
+        return this.dbReference = FirebaseDatabase.getInstance().getReference().child("SubCategories");
+    }
+
+
 }

@@ -5,7 +5,8 @@
     android:background="@color/nas"
     tools:context=".MainPageHome.View.HomeFragment">
 
-    <androidx.appcompat.widget.Toolbar style="@style/toolBar">
+    <androidx.appcompat.widget.Toolbar
+        style="@style/toolBar">
 
         <FrameLayout style="@style/TollBarFrameStyle">
 
@@ -15,7 +16,8 @@
 
             <TextView
                 android:id="@+id/homeSerch"
-                style="@style/serchIcon" />
+                style="@style/serchIcon"
+                android:layout_marginTop="@dimen/_5sdp"/>
         </FrameLayout>
     </androidx.appcompat.widget.Toolbar>
 

@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class HomePrsenter {
 
@@ -25,14 +26,11 @@ public class HomePrsenter {
     private homPageModel model;
     private CategoryAdapter adapter;
     private AppUtils appUtils;
-    private View view;
 
-    public HomePrsenter(Activity activity,View v) {
+    public HomePrsenter(Activity activity) {
         this.activity = activity;
         this.model = new homPageModel();
         this.appUtils = new AppUtils(this.activity);
-        this.view =v;
-        this.viewHolder = new HomePageViewHolder(view);
     }
 
     public void goToSerchPage() {
@@ -40,7 +38,7 @@ public class HomePrsenter {
         ConstantPage.OpenSerchPage(activity);
     }
 
-    public void showCatogeryData (){
+    public void showCatogeryData (RecyclerView recyclerView){
         appUtils.ShowDiload();
         ArrayList <CatogeryStructure> catogeryStructuresData = new ArrayList<>();
         model.getCatogeryStructures().addValueEventListener(new ValueEventListener() {
@@ -50,7 +48,7 @@ public class HomePrsenter {
                     CatogeryStructure  catogeryStructure = data.getValue(CatogeryStructure.class);
                     catogeryStructuresData.add(catogeryStructure);
                 }
-                ShowData(catogeryStructuresData);
+                ShowData(catogeryStructuresData,recyclerView);
 
 
             }
@@ -59,9 +57,9 @@ public class HomePrsenter {
             }
         });
     }
-    private void ShowData(ArrayList<CatogeryStructure> data) {
+    private void ShowData(ArrayList<CatogeryStructure> data,RecyclerView recyclerView) {
         appUtils.dialogDismiss();
-       this.viewHolder.getDataShow().setAdapter(new CategoryAdapter(this.activity,data));
+        recyclerView.setAdapter(new CategoryAdapter(this.activity,data));
 
     }
 

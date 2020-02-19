@@ -31,10 +31,10 @@
             android:name=".LawyerContents.View.ContactLawyer"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Articles.View.PostDetiles"
+            android:name=".Articles.view.PostDetiles"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Articles.View.Post"
+            android:name=".Articles.view.Post"
             android:screenOrientation="portrait" />
         <activity
             android:name=".MainPage.view.MainPage"

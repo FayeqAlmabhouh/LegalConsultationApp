@@ -10,8 +10,12 @@ public class CatogeryStructure {
     private String key;
     private String title;
 
+    public static CatogeryStructure SelectedCatogery = null;
+
     public CatogeryStructure() {
     }
+
+
 
     public CatogeryStructure(Long isActive, Long postCount, boolean haveSub, String image, long index, String key, String title) {
         IsActive = isActive;
@@ -77,5 +81,14 @@ public class CatogeryStructure {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+
+    public CatogeryStructure getSelectedCatogery() {
+        return SelectedCatogery;
+    }
+
+    public void setSelectedCatogery(CatogeryStructure selectedCatogery) {
+        SelectedCatogery = selectedCatogery;
     }
 }

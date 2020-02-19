@@ -26,7 +26,7 @@ public class HomeFragment extends Fragment implements HomeViewFun {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.home_fragment, container, false);
-        ButterKnife.bind(this, getActivity());
+        ButterKnife.bind(this, root.getRootView());
         inlOnStart();
         inlVaripel();
         return root;
@@ -41,15 +41,16 @@ public class HomeFragment extends Fragment implements HomeViewFun {
 
     @Override
     public void inlOnStart() {
-        this.viewHolder = new HomePageViewHolder(root);
-        this.prsenter = new HomePrsenter(getActivity(),root);
+        this.viewHolder = new HomePageViewHolder(this.root);
+        this.prsenter = new HomePrsenter(getActivity());
+
     }
 
     @Override
     public void inlVaripel() {
         this.viewHolder.homSerch.setOnClickListener(this::OnClick);
-        this.viewHolder.dataShow.setLayoutManager(new GridLayoutManager(this.root.getContext(),2));
+        this.viewHolder.dataShow.setLayoutManager(new GridLayoutManager(this.root.getContext(), 2));
         this.viewHolder.dataShow.setHasFixedSize(true);
-        this.prsenter.showCatogeryData();
+        this.prsenter.showCatogeryData(viewHolder.dataShow);
     }
 }
