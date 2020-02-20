@@ -12,7 +12,11 @@ import androidx.fragment.app.Fragment;
 public class ConstantPage {
 
     private Fragment localpage;
+    private Activity activity;
 
+    public ConstantPage(Activity activity) {
+        this.activity = activity;
+    }
 
     public Fragment getLocalpage() {
         return localpage;
@@ -22,15 +26,14 @@ public class ConstantPage {
         this.localpage = localpage;
     }
 
-    public static void OpenMainPage(Activity activity) {
-        Intent mainPage = new Intent(activity, MainPage.class);
-        activity.startActivity(mainPage);
-        activity.finish();
+    public void OpenMainPage() {
+        Intent mainPage = new Intent(this.activity, MainPage.class);
+        this.activity.startActivity(mainPage);
+        this.activity.finish();
     }
 
-    public static void OpenSerchPage(Context activity) {
-        Intent serchpage = new Intent();
-        serchpage.setClass(activity, SearchActivity.class);
-        activity.startActivity(serchpage);
+    public void OpenSerchPage() {
+        Intent serchpage = new Intent(this.activity, SearchActivity.class);
+        this.activity.startActivity(serchpage);
     }
 }

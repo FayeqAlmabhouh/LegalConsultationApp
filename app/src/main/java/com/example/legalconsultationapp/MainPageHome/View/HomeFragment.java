@@ -22,15 +22,13 @@ public class HomeFragment extends Fragment implements HomeViewFun {
     private HomePrsenter prsenter;
     private View root;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.home_fragment, container, false);
-        ButterKnife.bind(this, root.getRootView());
+        ButterKnife.bind(this, root);
         inlOnStart();
         inlVaripel();
         return root;
-
     }
 
     @Override
@@ -43,7 +41,6 @@ public class HomeFragment extends Fragment implements HomeViewFun {
     public void inlOnStart() {
         this.viewHolder = new HomePageViewHolder(this.root);
         this.prsenter = new HomePrsenter(getActivity());
-
     }
 
     @Override

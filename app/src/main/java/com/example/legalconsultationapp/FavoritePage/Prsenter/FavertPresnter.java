@@ -1,20 +1,21 @@
 package com.example.legalconsultationapp.FavoritePage.Prsenter;
 
-import android.content.Context;
+import android.app.Activity;
 
 import com.example.legalconsultationapp.Constant.ConstantPage;
 
 public class FavertPresnter {
 
-    private Context activity ;
+    private Activity activity;
+    private ConstantPage constantPage;
 
-    public FavertPresnter(Context activity) {
+    public FavertPresnter(Activity activity) {
         this.activity = activity;
+        this.constantPage = new ConstantPage(this.activity);
     }
 
-    public void GoToSerchPage(){
-        //ConstantPage.localpage = new FaveratFragment();
-        ConstantPage.OpenSerchPage(activity);
+    public void GoToSerchPage() {
+        constantPage.OpenSerchPage();
     }
 
 }

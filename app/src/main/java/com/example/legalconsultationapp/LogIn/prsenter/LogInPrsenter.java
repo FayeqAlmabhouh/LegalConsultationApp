@@ -9,15 +9,12 @@ import com.example.legalconsultationapp.Constant.ConstantVariable;
 import com.example.legalconsultationapp.LogIn.View.ForgetPassword;
 import com.example.legalconsultationapp.LogIn.View.logInViewHolder;
 import com.example.legalconsultationapp.LogIn.model.logInModel;
-import com.example.legalconsultationapp.R;
 import com.example.legalconsultationapp.SignUp.view.Signup;
 import com.example.legalconsultationapp.UserModel.UserPreferences;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.NonNull;
-import androidx.core.view.ViewCompat;
 
 public class LogInPrsenter {
 
@@ -27,6 +24,7 @@ public class LogInPrsenter {
     private ConstantVariable constantVariable;
     private UserPreferences userPreferences;
     private AppUtils appUtils;
+    private ConstantPage constantPage;
 
     public LogInPrsenter(Activity activity) {
         this.activity = activity;
@@ -34,7 +32,8 @@ public class LogInPrsenter {
         this.viewHolder = new logInViewHolder(activity);
         this.constantVariable = new ConstantVariable();
         this.userPreferences = new UserPreferences(activity);
-        appUtils = new AppUtils(this.activity);
+        this.appUtils = new AppUtils(this.activity);
+        this.constantPage = new ConstantPage(this.activity);
     }
 
     public void GotToForgetPass() {
@@ -50,7 +49,7 @@ public class LogInPrsenter {
     }
 
     public void MainPageButoon() {
-        ConstantPage.OpenMainPage(activity);
+        constantPage.OpenMainPage();
     }
 
     private boolean chakeUserData(String email, String pass) {
@@ -76,13 +75,13 @@ public class LogInPrsenter {
         if (CheckeInternetConection == false)
             appUtils.SnackbareStyle(constantVariable.getNoInternet());
         if (CheckUserDta && CheckeInternetConection == true) {
-            appUtils.ShowDiload();
+            appUtils.ShowDialog();
             Task task = logInModel.LogIn(email, password);
             task.addOnCompleteListener(new OnCompleteListener() {
                 @Override
                 public void onComplete(@NonNull Task task) {
                     if (task.isSuccessful()) {
-                        updateUserViewData ();
+                        updateUserViewData();
                         MainPageButoon();
                     } else {
                         appUtils.SnackbareStyle(task.getException().toString());
@@ -95,7 +94,7 @@ public class LogInPrsenter {
         }
     }
 
-    public void updateUserViewData (){
+    public void updateUserViewData() {
 
         logInModel.getUserData(activity);
 

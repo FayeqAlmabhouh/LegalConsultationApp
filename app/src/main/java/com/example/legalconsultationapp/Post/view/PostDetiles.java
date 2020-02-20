@@ -1,4 +1,4 @@
-package com.example.legalconsultationapp.Articles.view;
+package com.example.legalconsultationapp.Post.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,6 @@ public class PostDetiles extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_post_detiles);
+        setContentView(R.layout.post_activity_detiles);
     }
 }

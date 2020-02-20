@@ -1,6 +1,6 @@
 package com.example.legalconsultationapp.DataBaseModel;
 
-import com.example.legalconsultationapp.CatogeryModel.CatogeryStructure;
+import com.example.legalconsultationapp.MainPageHome.Model.CatogeryStructure;
 
 import java.util.List;
 

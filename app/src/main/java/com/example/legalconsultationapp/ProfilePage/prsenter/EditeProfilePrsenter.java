@@ -1,7 +1,6 @@
 package com.example.legalconsultationapp.ProfilePage.prsenter;
 
 import android.app.Activity;
-import android.content.Intent;
 
 import com.example.legalconsultationapp.AppUtils.AppUtils;
 import com.example.legalconsultationapp.Constant.ConstantVariable;
@@ -15,7 +14,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 
 public class EditeProfilePrsenter {
 
@@ -44,7 +42,7 @@ public class EditeProfilePrsenter {
     }
 
     public void SaveNewUserData(String name, String Phonumper) {
-        appUtils.ShowDiload();
+        appUtils.ShowDialog();
         if (appUtils.checkConnection() == false) {
             appUtils.SnackbareStyle(constantVariable.getNoInternet());
             appUtils.dialogDismiss();

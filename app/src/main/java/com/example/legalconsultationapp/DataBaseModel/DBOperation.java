@@ -2,7 +2,6 @@ package com.example.legalconsultationapp.DataBaseModel;
 
 import android.app.Activity;
 
-import com.example.legalconsultationapp.CatogeryModel.CatogeryStructure;
 import com.example.legalconsultationapp.UserModel.UserData;
 import com.example.legalconsultationapp.UserModel.UserInfo;
 import com.example.legalconsultationapp.Constant.ConstantVariable;
@@ -20,10 +19,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
-import java.util.List;
 import java.util.Map;
 
 import androidx.annotation.NonNull;
@@ -79,8 +76,7 @@ public class DBOperation {
     }
 
     public void getUserdata(Activity activity) {
-        this.dbReference =
-                FirebaseDatabase.getInstance().getReference().child(constantVariable.getDB_RootName());
+        this.dbReference = FirebaseDatabase.getInstance().getReference().child(constantVariable.getDB_RootName());
         userPreferences = new UserPreferences(activity);
         this.id = firebaseAuth.getCurrentUser().getUid();
         this.dbReference.child(this.id).addValueEventListener(new ValueEventListener() {

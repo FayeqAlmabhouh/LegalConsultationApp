@@ -15,7 +15,7 @@ public class SearchPresenter {
     }
 
     public void backButon() {
-        Fragment fragment = new ConstantPage().getLocalpage();
+        Fragment fragment = new ConstantPage(this.activity).getLocalpage();
         activity.finish();
     }
 }

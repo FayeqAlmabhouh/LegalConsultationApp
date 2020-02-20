@@ -1,4 +1,4 @@
-package com.example.legalconsultationapp.MainPageHome.Model;
+package com.example.legalconsultationapp.SubCategories.model;
 
 import android.view.View;
 import android.widget.ImageView;
@@ -10,17 +10,16 @@ import com.example.legalconsultationapp.R;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+public class subCatogeryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-public class CategoryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-
-    protected TextView catogerName;
-    protected ImageView catogeyImg;
+    protected TextView subCatogerName;
+    protected ImageView subCatogeyImg;
     private ClickListener clickListener;
 
-    public CategoryViewHolder(@NonNull View itemView) {
+    public subCatogeryViewHolder(@NonNull View itemView) {
         super(itemView);
-        catogerName = (TextView) itemView.findViewById(R.id.main_post_txt);
-        catogeyImg = (ImageView) itemView.findViewById(R.id.main_post_img);
+        this.subCatogerName = (TextView) itemView.findViewById(R.id.sub_categoryView_txt);
+        this.subCatogeyImg = (ImageView) itemView.findViewById(R.id.sub_categoryView_img);
         itemView.setOnClickListener(this);
     }
 

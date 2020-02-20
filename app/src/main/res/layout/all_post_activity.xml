@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/pageLayout"
     android:background="@color/nas"
-    tools:context=".Articles.view.Post">
+    tools:context=".Post.view.AllPostActivity">
 
     <androidx.appcompat.widget.Toolbar style="@style/toolBar">
 
@@ -15,19 +15,21 @@
             android:textDirection="rtl">
 
             <TextView
-                style="@style/ToolBarTextStyle"
-                android:text="تحكيم محلي وإقليمي" />
+                android:id="@+id/post_titel"
+                style="@style/ToolBarTextStyle"/>
 
             <TextView
-                android:id="@+id/postDitelsSkip"
+                android:id="@+id/post_back"
                 style="@style/BackShape" />
 
-            <TextView style="@style/serchIcon" />
+            <TextView
+                android:id="@+id/post_serch"
+                style="@style/serchIcon" />
         </FrameLayout>
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/PostRecycleView"
+        android:id="@+id/sub_Catogery_RecycleView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
@@ -39,7 +41,7 @@
         android:scrollbars="none"
         android:textAlignment="center"
         android:textDirection="rtl"
-        tools:listitem="@layout/sup_categories_view" />
+        tools:listitem="@layout/sub_categories_view" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -58,7 +60,6 @@
             android:layout_marginBottom="@dimen/_5sdp"
             android:layout_weight="1"
             android:src="@drawable/phone_imge" />
-
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -68,4 +69,5 @@
             android:layout_weight="1"
             android:src="@drawable/mes_img" />
     </LinearLayout>
+
 </LinearLayout>

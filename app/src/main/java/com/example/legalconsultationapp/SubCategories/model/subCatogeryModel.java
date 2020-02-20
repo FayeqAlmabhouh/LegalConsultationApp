@@ -1,4 +1,4 @@
-package com.example.legalconsultationapp.Articles.model;
+package com.example.legalconsultationapp.SubCategories.model;
 
 import com.example.legalconsultationapp.DataBaseModel.DBOperation;
 import com.google.firebase.database.DatabaseReference;

@@ -13,10 +13,12 @@ import java.util.TimerTask;
 public class SplashPrsenter {
     private Activity activity;
     private UserPreferences userPreferences;
+    private ConstantPage constantPage;
 
     public SplashPrsenter(Activity activity) {
         this.activity = activity;
         this.userPreferences = new UserPreferences(activity);
+        this.constantPage = new ConstantPage(this.activity);
     }
 
     public void SplashTimer() {
@@ -26,7 +28,7 @@ public class SplashPrsenter {
             public void run() {
                 boolean chakeUserLogedIn = UserhaveAcount();
                 if (chakeUserLogedIn == true)
-                    ConstantPage.OpenMainPage(activity);
+                    constantPage.OpenMainPage();
                 else
                     GoToLogInPage();
             }

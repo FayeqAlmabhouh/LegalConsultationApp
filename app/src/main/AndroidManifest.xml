@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ProfilePage.view.ChangePassActivity"></activity>
+        <activity android:name=".Post.view.AllPostActivity"></activity>
+        <activity android:name=".ProfilePage.view.ChangePassActivity" />
         <activity
             android:name=".ProfilePage.view.EditeProfile"
             android:screenOrientation="portrait" />
@@ -31,10 +32,10 @@
             android:name=".LawyerContents.View.ContactLawyer"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Articles.view.PostDetiles"
+            android:name=".Post.view.PostDetiles"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Articles.view.Post"
+            android:name=".SubCategories.view.SubCategories"
             android:screenOrientation="portrait" />
         <activity
             android:name=".MainPage.view.MainPage"

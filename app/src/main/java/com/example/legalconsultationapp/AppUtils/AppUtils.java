@@ -78,7 +78,7 @@ public class AppUtils {
     }
 
 
-    public void ShowDiload() {
+    public void ShowDialog() {
         this.dialog = new ACProgressFlower.Builder(activity)
                 .direction(ACProgressConstant.DIRECT_ANTI_CLOCKWISE).themeColor(Color.WHITE)
                 .text("الرجاء الانتظار").fadeColor(Color.DKGRAY).build();

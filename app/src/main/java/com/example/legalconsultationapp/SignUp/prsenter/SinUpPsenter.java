@@ -28,6 +28,7 @@ public class SinUpPsenter {
     private UserPreferences userPreferences;
     private UserData userData;
     private AppUtils appUtils;
+    private ConstantPage constantPage;
 
     public SinUpPsenter(Activity activity) {
         this.activity = activity;
@@ -37,6 +38,7 @@ public class SinUpPsenter {
         this.sinUpModel = new SinUpModel();
         this.userPreferences = new UserPreferences(activity);
         this.appUtils = new AppUtils(this.activity);
+        this.constantPage = new ConstantPage(this.activity);
     }
 
     public void GoBackToLogIn() {
@@ -46,7 +48,7 @@ public class SinUpPsenter {
     }
 
     public void GoToMainPage() {
-        ConstantPage.OpenMainPage(activity);
+       constantPage.OpenMainPage();
     }
 
     private boolean CheakeUserData(UserInfo userInfo) {
@@ -121,7 +123,7 @@ public class SinUpPsenter {
     private void CreateAcount(UserInfo userInfo) {
         boolean checkInternet = appUtils.checkConnection();
         if (checkInternet == true) {
-            appUtils.ShowDiload();
+            appUtils.ShowDialog();
             initUserData();
             Task task = sinUpModel.CreateAccount(userInfo);
             task.addOnCompleteListener(new OnCompleteListener() {

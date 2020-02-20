@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.legalconsultationapp.Constant.ConstantPage;
 import com.example.legalconsultationapp.FavoritePage.View.FaveratFragment;
 import com.example.legalconsultationapp.MainPage.presnter.MainPageFun;
 import com.example.legalconsultationapp.MainPageHome.View.HomeFragment;
@@ -27,7 +26,7 @@ public class MainPage extends AppCompatActivity implements MainPageFun {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_page);
+        setContentView(R.layout.main_activity_page);
 
 
 

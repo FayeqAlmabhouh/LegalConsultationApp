@@ -1,4 +1,4 @@
-package com.example.legalconsultationapp.MainPageHome.Model;
+package com.example.legalconsultationapp.CatogeryModel;
 
 import android.view.View;
 

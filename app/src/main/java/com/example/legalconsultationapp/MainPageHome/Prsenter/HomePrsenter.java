@@ -1,10 +1,9 @@
 package com.example.legalconsultationapp.MainPageHome.Prsenter;
 
 import android.app.Activity;
-import android.view.View;
 
 import com.example.legalconsultationapp.AppUtils.AppUtils;
-import com.example.legalconsultationapp.CatogeryModel.CatogeryStructure;
+import com.example.legalconsultationapp.MainPageHome.Model.CatogeryStructure;
 import com.example.legalconsultationapp.Constant.ConstantPage;
 import com.example.legalconsultationapp.MainPageHome.Model.CategoryAdapter;
 import com.example.legalconsultationapp.MainPageHome.Model.homPageModel;
@@ -16,7 +15,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class HomePrsenter {
@@ -26,43 +24,42 @@ public class HomePrsenter {
     private homPageModel model;
     private CategoryAdapter adapter;
     private AppUtils appUtils;
+    private ConstantPage constantPage;
 
     public HomePrsenter(Activity activity) {
         this.activity = activity;
         this.model = new homPageModel();
         this.appUtils = new AppUtils(this.activity);
+        this.constantPage = new ConstantPage(this.activity);
     }
 
     public void goToSerchPage() {
-        //ConstantPage.localpage = new HomeFragment();
-        ConstantPage.OpenSerchPage(activity);
+        constantPage.OpenSerchPage();
     }
 
-    public void showCatogeryData (RecyclerView recyclerView){
-        appUtils.ShowDiload();
-        ArrayList <CatogeryStructure> catogeryStructuresData = new ArrayList<>();
+    public void showCatogeryData(RecyclerView recyclerView) {
+        appUtils.ShowDialog();
+        ArrayList<CatogeryStructure> catogeryStructuresData = new ArrayList<>();
         model.getCatogeryStructures().addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot data :dataSnapshot.getChildren()){
-                    CatogeryStructure  catogeryStructure = data.getValue(CatogeryStructure.class);
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    CatogeryStructure catogeryStructure = data.getValue(CatogeryStructure.class);
                     catogeryStructuresData.add(catogeryStructure);
                 }
-                ShowData(catogeryStructuresData,recyclerView);
-
-
+                ShowData(catogeryStructuresData, recyclerView);
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
     }
-    private void ShowData(ArrayList<CatogeryStructure> data,RecyclerView recyclerView) {
+
+    private void ShowData(ArrayList<CatogeryStructure> data, RecyclerView recyclerView) {
         appUtils.dialogDismiss();
-        recyclerView.setAdapter(new CategoryAdapter(this.activity,data));
-
+        recyclerView.setAdapter(new CategoryAdapter(this.activity, data));
     }
-
 
 
 }

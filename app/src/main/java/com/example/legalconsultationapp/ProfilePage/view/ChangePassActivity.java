@@ -19,7 +19,7 @@ public class ChangePassActivity extends AppCompatActivity implements EditeProfil
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_change_pass);
+        setContentView(R.layout.change_activity_pass);
         ButterKnife.bind(this);
         iniOnStart();
         iniVariable();

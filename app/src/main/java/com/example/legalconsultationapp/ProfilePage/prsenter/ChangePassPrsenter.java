@@ -62,7 +62,7 @@ public class ChangePassPrsenter {
         if (appUtils.checkConnection() == false)
             appUtils.SnackbareStyle(constantVariable.getNoInternet());
         else if (appUtils.checkConnection() && CheckEmptiyBox(oldPass, newPass, newRepetPass) == true) {
-            appUtils.ShowDiload();
+            appUtils.ShowDialog();
             model.CheakeOldPass(userPreferences.getUserEmail(), oldPass).addOnCompleteListener
                     (new OnCompleteListener() {
                         @Override

@@ -1,4 +1,4 @@
-package com.example.legalconsultationapp.CatogeryModel;
+package com.example.legalconsultationapp.MainPageHome.Model;
 
 public class CatogeryStructure {
 

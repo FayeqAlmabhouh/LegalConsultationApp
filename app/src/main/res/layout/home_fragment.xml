@@ -16,6 +16,7 @@
 
             <TextView
                 android:id="@+id/homeSerch"
+                android:text="  "
                 style="@style/serchIcon"
                 android:layout_marginTop="@dimen/_5sdp"/>
         </FrameLayout>

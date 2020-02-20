@@ -2,9 +2,12 @@ package com.example.legalconsultationapp.FavoritePage.Prsenter;
 
 import android.view.View;
 
-public interface FavertViewFun{
+public interface FavertViewFun {
 
-    public void OnClick(View view);
+    void OnClick(View view);
 
+    void intlVariable();
+
+    void inlOnStart();
 
 }

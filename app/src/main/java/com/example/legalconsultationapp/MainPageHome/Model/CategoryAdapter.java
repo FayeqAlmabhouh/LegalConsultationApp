@@ -6,8 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.legalconsultationapp.Articles.view.Post;
-import com.example.legalconsultationapp.CatogeryModel.CatogeryStructure;
+import com.example.legalconsultationapp.SubCategories.view.SubCategories;
+import com.example.legalconsultationapp.CatogeryModel.ClickListener;
 import com.example.legalconsultationapp.R;
 import com.squareup.picasso.Picasso;
 
@@ -43,7 +43,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryViewHolder> {
             @Override
             public void OnClick(View view) {
                 CatogeryStructure.SelectedCatogery = data.get(position);
-                Intent openSubCategoryPage = new Intent(context.getApplicationContext(),Post.class);
+                Intent openSubCategoryPage = new Intent(context.getApplicationContext(), SubCategories.class);
                 context.startActivity(openSubCategoryPage);
             }
         });
