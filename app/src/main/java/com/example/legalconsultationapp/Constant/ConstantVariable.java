@@ -9,7 +9,7 @@ public class ConstantVariable {
     private final String DB_UserEmail = "email";
     private final String DB_UserPhoneNumber = "phone";
     private final String DB_RootName = "Users";
-    private final String DB_UserID =   "userId";
+    private final String DB_UserID = "userId";
     private final String passSendeItToEmail = "تم أرسال أعدادات كلمة اسر الى الايميل ";
     private final String empty_email = "البريد الإكتروني مطلوب";
     private final String empty_password = "كلمة السر مطلوبة";
@@ -23,6 +23,21 @@ public class ConstantVariable {
     private final String empty_numper = "رقم الجوال مطلوب   ";
     private final String email_formatr = "تحقق من صحة البريد الإلكتروني";
     private final String loading_masg = "الرجاء الانتظار";
+    private final String DB_Categories_Root_Name = "Categories";
+    private final String DB_SubCategories_Root_Name = "SubCategories";
+    private final String DB_posts_Root_Name = "posts";
+
+    public String getDB_posts_Root_Name() {
+        return DB_posts_Root_Name;
+    }
+
+    public String getDB_Categories_Root_Name() {
+        return DB_Categories_Root_Name;
+    }
+
+    public String getDB_SubCategories_Root_Name() {
+        return DB_SubCategories_Root_Name;
+    }
 
     public String getLoading_masg() {
         return loading_masg;

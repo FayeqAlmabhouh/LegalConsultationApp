@@ -1,4 +1,4 @@
-package com.example.legalconsultationapp.MainPageHome.Model;
+package com.example.legalconsultationapp.CatogeryModel;
 
 public class CatogeryStructure {
 
@@ -14,7 +14,6 @@ public class CatogeryStructure {
 
     public CatogeryStructure() {
     }
-
 
 
     public CatogeryStructure(Long isActive, Long postCount, boolean haveSub, String image, long index, String key, String title) {

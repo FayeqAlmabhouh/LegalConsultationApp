@@ -1,19 +1,20 @@
 package com.example.legalconsultationapp.Post.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import butterknife.ButterKnife;
 
 import android.os.Bundle;
 import android.view.View;
 
 import com.example.legalconsultationapp.Post.prsenter.AllPostFun;
-import com.example.legalconsultationapp.Post.prsenter.AllPostPrsenter;
+import com.example.legalconsultationapp.Post.prsenter.AllPostPresenter;
 import com.example.legalconsultationapp.R;
 
 public class AllPostActivity extends AppCompatActivity implements AllPostFun {
 
     private AllPostViewHolder viewHolder;
-    private AllPostPrsenter prsenter;
+    private AllPostPresenter prsenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +27,7 @@ public class AllPostActivity extends AppCompatActivity implements AllPostFun {
 
     @Override
     public void intlOnStart() {
-        this.prsenter = new AllPostPrsenter(this);
+        this.prsenter = new AllPostPresenter(this);
         this.viewHolder = new AllPostViewHolder(this);
     }
 
@@ -34,6 +35,9 @@ public class AllPostActivity extends AppCompatActivity implements AllPostFun {
     public void intlVariable() {
         this.viewHolder.back.setOnClickListener(this::OnClick);
         this.viewHolder.serch.setOnClickListener(this::OnClick);
+        this.viewHolder.AllPostRecyclerView.setLayoutManager(new GridLayoutManager(this, 1));
+        this.viewHolder.AllPostRecyclerView.setHasFixedSize(true);
+        this.prsenter.printPost(viewHolder.AllPostRecyclerView);
     }
 
     @Override

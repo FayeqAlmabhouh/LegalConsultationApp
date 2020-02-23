@@ -2,13 +2,12 @@ package com.example.legalconsultationapp.SubCategories.prsenter;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.widget.Toast;
 
 import com.example.legalconsultationapp.AppUtils.AppUtils;
 import com.example.legalconsultationapp.SubCategories.model.subCatogeryAdapter;
 import com.example.legalconsultationapp.SubCategories.model.subCatogeryModel;
-import com.example.legalconsultationapp.SubCategories.model.subCatogeryStructure;
-import com.example.legalconsultationapp.MainPageHome.Model.CatogeryStructure;
+import com.example.legalconsultationapp.CatogeryModel.subCatogeryStructure;
+import com.example.legalconsultationapp.CatogeryModel.CatogeryStructure;
 import com.example.legalconsultationapp.Constant.ConstantPage;
 import com.example.legalconsultationapp.MainPage.view.MainPage;
 import com.google.firebase.database.DataSnapshot;
@@ -48,6 +47,7 @@ public class subCatogeryPrsenter {
                     subCatogeryStructure subCatogeryStructureData = data.getValue(subCatogeryStructure.class);
                     Listdata.add(subCatogeryStructureData);
                 }
+                ShowData(Listdata, recyclerView);
             }
 
             @Override

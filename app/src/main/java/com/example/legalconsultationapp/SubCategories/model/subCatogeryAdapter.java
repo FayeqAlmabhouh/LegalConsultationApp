@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.legalconsultationapp.CatogeryModel.ClickListener;
+import com.example.legalconsultationapp.CatogeryModel.subCatogeryStructure;
 import com.example.legalconsultationapp.R;
 import com.squareup.picasso.Picasso;
 

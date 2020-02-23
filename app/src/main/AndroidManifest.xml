@@ -32,7 +32,7 @@
             android:name=".LawyerContents.View.ContactLawyer"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Post.view.PostDetiles"
+            android:name=".Post.view.PostDetails"
             android:screenOrientation="portrait" />
         <activity
             android:name=".SubCategories.view.SubCategories"

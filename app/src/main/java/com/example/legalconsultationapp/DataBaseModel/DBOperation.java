@@ -128,12 +128,14 @@ public class DBOperation {
     }
 
     public DatabaseReference getCatogeryData() {
-        return this.dbReference = FirebaseDatabase.getInstance().getReference().child("Categories");
+        return this.dbReference = FirebaseDatabase.getInstance().getReference().child(constantVariable.getDB_Categories_Root_Name());
     }
 
     public DatabaseReference getSubCatogeryData() {
-        return this.dbReference = FirebaseDatabase.getInstance().getReference().child("SubCategories");
+        return this.dbReference = FirebaseDatabase.getInstance().getReference().child(constantVariable.getDB_SubCategories_Root_Name());
     }
 
-
+    public DatabaseReference getPost() {
+        return this.dbReference = FirebaseDatabase.getInstance().getReference().child(constantVariable.getDB_posts_Root_Name());
+    }
 }

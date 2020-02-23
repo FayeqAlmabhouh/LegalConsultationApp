@@ -1,4 +1,4 @@
-package com.example.legalconsultationapp.SubCategories.model;
+package com.example.legalconsultationapp.CatogeryModel;
 
 public class subCatogeryStructure {
     private String catId;

@@ -11,6 +11,9 @@ public class AllPostStructure {
     private String subCatId;
     private String title;
 
+    public static AllPostStructure postStructure = null;
+
+
     public AllPostStructure
             (String catId, long date, String desc, String description, String image, long index, String subCatId, String title) {
         this.catId = catId;

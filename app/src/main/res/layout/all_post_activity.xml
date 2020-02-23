@@ -7,17 +7,14 @@
     tools:context=".Post.view.AllPostActivity">
 
     <androidx.appcompat.widget.Toolbar style="@style/toolBar">
-
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layoutDirection="rtl"
             android:textDirection="rtl">
-
             <TextView
                 android:id="@+id/post_titel"
-                style="@style/ToolBarTextStyle"/>
-
+                style="@style/ToolBarTextStyle" />
             <TextView
                 android:id="@+id/post_back"
                 style="@style/BackShape" />
@@ -29,7 +26,7 @@
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/sub_Catogery_RecycleView"
+        android:id="@+id/all_post_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
@@ -41,7 +38,7 @@
         android:scrollbars="none"
         android:textAlignment="center"
         android:textDirection="rtl"
-        tools:listitem="@layout/sub_categories_view" />
+        tools:listitem="@layout/post_list_view" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -60,6 +57,7 @@
             android:layout_marginBottom="@dimen/_5sdp"
             android:layout_weight="1"
             android:src="@drawable/phone_imge" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -69,5 +67,4 @@
             android:layout_weight="1"
             android:src="@drawable/mes_img" />
     </LinearLayout>
-
 </LinearLayout>

@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.legalconsultationapp.R;
 
-public class PostDetiles extends AppCompatActivity {
+public class PostDetails extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

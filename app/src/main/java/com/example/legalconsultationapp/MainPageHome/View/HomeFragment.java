@@ -25,7 +25,7 @@ public class HomeFragment extends Fragment implements HomeViewFun {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.home_fragment, container, false);
-        ButterKnife.bind(this, root);
+        ButterKnife.bind(this, this.root);
         inlOnStart();
         inlVaripel();
         return root;

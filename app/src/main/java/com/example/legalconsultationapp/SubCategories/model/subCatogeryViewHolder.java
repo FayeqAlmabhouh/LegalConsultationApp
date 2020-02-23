@@ -14,7 +14,7 @@ public class subCatogeryViewHolder extends RecyclerView.ViewHolder implements Vi
 
     protected TextView subCatogerName;
     protected ImageView subCatogeyImg;
-    private ClickListener clickListener;
+    protected ClickListener clickListener;
 
     public subCatogeryViewHolder(@NonNull View itemView) {
         super(itemView);

@@ -7,7 +7,7 @@
     android:layoutDirection="rtl"
     android:orientation="vertical"
     android:textDirection="rtl"
-    tools:context=".Post.view.PostDetiles">
+    tools:context=".Post.view.PostDetails">
 
     <androidx.appcompat.widget.Toolbar style="@style/toolBar">
 
@@ -22,11 +22,11 @@
                 android:text="@string/postDitels" />
 
             <TextView
-                android:id="@+id/postDitelsSkip"
+                android:id="@+id/post_det_back"
                 style="@style/BackShape" />
 
             <TextView
-                android:id="@+id/postDitelsFlag"
+                android:id="@+id/post_det_flag"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="end"
@@ -40,7 +40,7 @@
         android:layout_height="@dimen/_200sdp">
 
         <ImageView
-            android:id="@+id/image_post"
+            android:id="@+id/post_det_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
@@ -50,7 +50,7 @@
     </FrameLayout>
 
     <TextView
-        android:id="@+id/postDitelsData"
+        android:id="@+id/post_det_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_10sdp"
@@ -58,7 +58,6 @@
         android:drawableStart="@drawable/ic_date"
         android:drawablePadding="@dimen/_3sdp"
         android:paddingEnd="@dimen/_3sdp"
-        android:text="NOV 15 2020"
         android:textAlignment="center" />
 
     <view
@@ -68,7 +67,7 @@
         android:background="@color/gray" />
 
     <TextView
-        android:id="@+id/postDitelsTiltel"
+        android:id="@+id/post_det_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_5sdp"
@@ -80,7 +79,7 @@
         android:textSize="@dimen/_15sdp" />
 
     <TextView
-        android:id="@+id/postDetileContent"
+        android:id="@+id/post_det_Content"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_marginStart="@dimen/_5sdp"

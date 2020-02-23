@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.legalconsultationapp.CatogeryModel.CatogeryStructure;
 import com.example.legalconsultationapp.SubCategories.view.SubCategories;
 import com.example.legalconsultationapp.CatogeryModel.ClickListener;
 import com.example.legalconsultationapp.R;
