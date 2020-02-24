@@ -6,6 +6,7 @@ import android.content.Intent;
 
 import com.example.legalconsultationapp.LawyerContents.View.RequestFreeAdvice;
 import com.example.legalconsultationapp.MainPage.view.MainPage;
+import com.example.legalconsultationapp.Post.view.AllPostActivity;
 import com.example.legalconsultationapp.Search.View.SearchActivity;
 
 import androidx.fragment.app.Fragment;
@@ -68,4 +69,12 @@ public class ConstantPage {
     public void setLawyerPage(Activity lawyerPage) {
         LawyerPage = lawyerPage;
     }
+
+    public void openPostPageBu() {
+        Intent poastPage = new Intent(activity, AllPostActivity.class);
+        activity.startActivity(poastPage);
+        activity.finish();
+    }
+
+
 }

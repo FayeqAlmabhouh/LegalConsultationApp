@@ -14,6 +14,7 @@
             android:textDirection="rtl">
 
             <TextView
+                android:id="@+id/requser_free_advice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_25sdp"

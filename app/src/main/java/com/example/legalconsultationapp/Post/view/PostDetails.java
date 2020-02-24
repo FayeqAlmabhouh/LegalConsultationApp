@@ -3,6 +3,7 @@ package com.example.legalconsultationapp.Post.view;
 import androidx.appcompat.app.AppCompatActivity;
 import butterknife.ButterKnife;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 
@@ -41,6 +42,9 @@ public class PostDetails extends AppCompatActivity implements AllPostFun {
         this.prsenters.setPosDat(viewHolder.postImg, viewHolder.postDate, viewHolder.postTitel, viewHolder.postContent);
         this.viewHolder.ContactLawyer.setOnClickListener(this::OnClick);
         this.viewHolder.freeAdvice.setOnClickListener(this::OnClick);
+        this.viewHolder.favoriteBu.setOnClickListener(this::OnClick);
+
+
     }
 
     @Override
@@ -53,5 +57,7 @@ public class PostDetails extends AppCompatActivity implements AllPostFun {
             prsenters.openContactLawyer();
         if (view == viewHolder.freeAdvice)
             prsenters.openFreeAdvice();
+        if (view == viewHolder.favoriteBu)
+            viewHolder.favoriteBu.setBackgroundResource(R.drawable.yaloow_star);
     }
 }

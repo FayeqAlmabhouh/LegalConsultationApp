@@ -34,5 +34,7 @@ public class PostDetailsViewHolder {
     protected ImageView freeAdvice;
     @BindView(R.id.post_det_Contact_Lawyer)
     protected ImageView ContactLawyer;
+    @BindView(R.id.post_det_favorite)
+    protected ImageView favoriteBu;
 
 }
