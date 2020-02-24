@@ -4,10 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 
 import com.example.legalconsultationapp.AppUtils.AppUtils;
+import com.example.legalconsultationapp.CatogeryModel.subCatogeryStructure;
 import com.example.legalconsultationapp.Constant.ConstantPage;
-import com.example.legalconsultationapp.CatogeryModel.CatogeryStructure;
+import com.example.legalconsultationapp.Post.model.PostAdapter;
 import com.example.legalconsultationapp.Post.model.AllPostStructure;
-import com.example.legalconsultationapp.Post.model.AllPostViewAdapter;
 import com.example.legalconsultationapp.Post.model.AllpostModel;
 import com.example.legalconsultationapp.SubCategories.view.SubCategories;
 import com.google.firebase.database.DataSnapshot;
@@ -25,14 +25,14 @@ public class AllPostPresenter {
     private AppUtils appUtils;
     private ConstantPage constantPage;
     private AllpostModel model;
-    private String catogeryId;
+    private String catId;
 
     public AllPostPresenter(Activity activity) {
         this.activity = activity;
         this.appUtils = new AppUtils(this.activity);
         this.constantPage = new ConstantPage(this.activity);
         this.model = new AllpostModel();
-        this.catogeryId = CatogeryStructure.SelectedCatogery.getKey();
+        this.catId = subCatogeryStructure.selectedSubCatogeryStructure.getKey();
     }
 
     public void OpenSerchPage() {
@@ -46,26 +46,42 @@ public class AllPostPresenter {
     }
 
     public void printPost(RecyclerView recyclerView) {
+        appUtils.ShowLoadingDialogue();
         List<AllPostStructure> listData = new ArrayList<>();
-        model.getPosts().child(catogeryId).addValueEventListener(new ValueEventListener() {
+        this.model.getPostDetiles().child(this.catId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot getData : dataSnapshot.getChildren()) {
-                    AllPostStructure allPostStructure = getData.getValue(AllPostStructure.class);
-                    listData.add(allPostStructure);
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    AllPostStructure post = data.getValue(AllPostStructure.class);
+                    listData.add(post);
                 }
                 ShowData(listData, recyclerView);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
     }
 
     private void ShowData(List<AllPostStructure> listData, RecyclerView recyclerView) {
-        recyclerView.setAdapter(new AllPostViewAdapter(this.activity, listData));
+        appUtils.dialogDismiss();
+        recyclerView.setAdapter(new PostAdapter(this.activity, listData));
     }
 
+    public String getPageTitel() {
+        return subCatogeryStructure.selectedSubCatogeryStructure.getTitle();
+    }
+
+    public void openContactLawyer() {
+        constantPage.setLawyerPage(this.activity);
+        constantPage.openContactLawyer();
+    }
+
+    public void openFreeAdvice() {
+        constantPage.setLawyerPage(this.activity);
+        constantPage.openFreeAdvice();
+    }
 
 }

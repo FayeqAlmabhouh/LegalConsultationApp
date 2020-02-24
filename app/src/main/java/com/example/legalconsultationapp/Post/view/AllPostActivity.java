@@ -20,6 +20,8 @@ public class AllPostActivity extends AppCompatActivity implements AllPostFun {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.all_post_activity);
+
+
         ButterKnife.bind(this);
         intlOnStart();
         intlVariable();
@@ -35,9 +37,12 @@ public class AllPostActivity extends AppCompatActivity implements AllPostFun {
     public void intlVariable() {
         this.viewHolder.back.setOnClickListener(this::OnClick);
         this.viewHolder.serch.setOnClickListener(this::OnClick);
-        this.viewHolder.AllPostRecyclerView.setLayoutManager(new GridLayoutManager(this, 1));
-        this.viewHolder.AllPostRecyclerView.setHasFixedSize(true);
-        this.prsenter.printPost(viewHolder.AllPostRecyclerView);
+        this.viewHolder.recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
+        this.viewHolder.recyclerView.setHasFixedSize(true);
+        this.prsenter.printPost(viewHolder.recyclerView);
+        this.viewHolder.pageTitel.setText(this.prsenter.getPageTitel());
+        this.viewHolder.ContactLawyer.setOnClickListener(this::OnClick);
+        this.viewHolder.freeAdvice.setOnClickListener(this::OnClick);
     }
 
     @Override
@@ -46,5 +51,9 @@ public class AllPostActivity extends AppCompatActivity implements AllPostFun {
             prsenter.BackToCatogryPage();
         if (view == viewHolder.serch)
             prsenter.OpenSerchPage();
+        if (view == viewHolder.ContactLawyer)
+            prsenter.openContactLawyer();
+        if (view == viewHolder.freeAdvice)
+            prsenter.openFreeAdvice();
     }
 }

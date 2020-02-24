@@ -1,6 +1,7 @@
 package com.example.legalconsultationapp.Post.view;
 
 import android.app.Activity;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.legalconsultationapp.R;
@@ -18,13 +19,18 @@ public class AllPostViewHolder {
         ButterKnife.bind(this, this.activity);
     }
 
-    @BindView(R.id.post_back)
+    @BindView(R.id.post_page_back)
     protected TextView back;
     @BindView(R.id.post_serch)
     protected TextView serch;
-    @BindView(R.id.post_titel)
+    @BindView(R.id.post_page_titel)
     protected TextView pageTitel;
     @BindView(R.id.all_post_recycler_view)
-    protected RecyclerView AllPostRecyclerView;
+    protected RecyclerView recyclerView;
+
+    @BindView(R.id.all_post_Free_Advice)
+    protected ImageView freeAdvice;
+    @BindView(R.id.all_post_Contact_Lawyer)
+    protected ImageView ContactLawyer;
 
 }

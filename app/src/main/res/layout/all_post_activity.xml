@@ -7,16 +7,19 @@
     tools:context=".Post.view.AllPostActivity">
 
     <androidx.appcompat.widget.Toolbar style="@style/toolBar">
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layoutDirection="rtl"
             android:textDirection="rtl">
+
             <TextView
-                android:id="@+id/post_titel"
+                android:id="@+id/post_page_titel"
                 style="@style/ToolBarTextStyle" />
+
             <TextView
-                android:id="@+id/post_back"
+                android:id="@+id/post_page_back"
                 style="@style/BackShape" />
 
             <TextView
@@ -37,8 +40,7 @@
         android:padding="@dimen/_1sdp"
         android:scrollbars="none"
         android:textAlignment="center"
-        android:textDirection="rtl"
-        tools:listitem="@layout/post_list_view" />
+        android:textDirection="rtl" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,6 +52,7 @@
         android:textDirection="rtl">
 
         <ImageView
+            android:id="@+id/all_post_Contact_Lawyer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
@@ -59,6 +62,7 @@
             android:src="@drawable/phone_imge" />
 
         <ImageView
+            android:id="@+id/all_post_Free_Advice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"

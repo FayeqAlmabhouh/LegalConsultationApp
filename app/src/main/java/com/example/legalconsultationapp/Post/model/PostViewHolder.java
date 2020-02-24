@@ -10,26 +10,27 @@ import com.example.legalconsultationapp.R;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class AllPostViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class PostViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    protected TextView postText;
-    protected ImageView postImge;
-    protected TextView postDes;
-    protected TextView postDate;
+    protected TextView postViewTitel;
+    protected ImageView postViewImg;
+    protected TextView postViewDescrption;
+    protected TextView posViewDate;
     protected ClickListener clickListener;
 
-    public AllPostViewHolder(@NonNull View itemView) {
+    public PostViewHolder(@NonNull View itemView) {
         super(itemView);
-        this.postText = (TextView) itemView.findViewById(R.id.view_post_title);
-        this.postImge = (ImageView) itemView.findViewById(R.id.view_post_img);
-        this.postDate = (TextView) itemView.findViewById(R.id.view_post_data);
-        this.postDes = (TextView) itemView.findViewById(R.id.view_post_decs);
+        this.postViewTitel = (TextView) itemView.findViewById(R.id.view_post_title);
+        this.postViewImg = (ImageView) itemView.findViewById(R.id.view_post_img);
+        this.postViewDescrption = (TextView) itemView.findViewById(R.id.view_post_decs);
+        this.posViewDate = (TextView) itemView.findViewById(R.id.view_post_data);
         itemView.setOnClickListener(this);
     }
 
     public void setClickListener(ClickListener clickListener) {
         this.clickListener = clickListener;
     }
+
 
     @Override
     public void onClick(View v) {

@@ -2,6 +2,7 @@ package com.example.legalconsultationapp.Post.model;
 
 import com.example.legalconsultationapp.DataBaseModel.DBOperation;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.firestore.Query;
 
 public class AllpostModel {
 
@@ -11,13 +12,10 @@ public class AllpostModel {
         dbOperation = new DBOperation();
     }
 
-    public DatabaseReference getPosts() {
+
+    public DatabaseReference getPostDetiles() {
         return dbOperation.getPost();
     }
-    
-    public DatabaseReference getPostDetiles (){
-        return dbOperation.getPost();
-    }
-    
-    
+
+
 }

@@ -53,7 +53,7 @@ public class ForgetPassPrsenter {
     }
 
     private void UserResetPasswor(String email) {
-        appUtils.ShowDialog();
+        appUtils.ShowLoadingDialogue();
         Task task = logInModel.resetPass(email).addOnCompleteListener(new OnCompleteListener() {
             @Override
             public void onComplete(@NonNull Task task) {

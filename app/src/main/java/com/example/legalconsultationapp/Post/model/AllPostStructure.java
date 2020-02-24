@@ -11,7 +11,7 @@ public class AllPostStructure {
     private String subCatId;
     private String title;
 
-    public static AllPostStructure postStructure = null;
+    public static AllPostStructure SelectedPostStructure = null;
 
 
     public AllPostStructure

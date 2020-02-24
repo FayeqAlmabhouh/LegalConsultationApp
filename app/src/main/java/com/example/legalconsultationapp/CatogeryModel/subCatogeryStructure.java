@@ -5,14 +5,16 @@ public class subCatogeryStructure {
     private String image;
     private long index;
     private long isActive;
+    private String key;
     private String title;
-    public  static subCatogeryStructure selectedSubCatogeryStructure = null;
+    public static subCatogeryStructure selectedSubCatogeryStructure;
 
-    public subCatogeryStructure(String catId, String image, long index, long isActive, String title) {
+    public subCatogeryStructure(String catId, String image, long index, long isActive, String key, String title) {
         this.catId = catId;
         this.image = image;
         this.index = index;
         this.isActive = isActive;
+        this.key = key;
         this.title = title;
     }
 
@@ -58,5 +60,14 @@ public class subCatogeryStructure {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
 
 }

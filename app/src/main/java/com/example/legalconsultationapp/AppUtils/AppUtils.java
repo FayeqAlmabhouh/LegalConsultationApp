@@ -11,6 +11,7 @@ import android.widget.EditText;
 import com.example.legalconsultationapp.Constant.ConstantVariable;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.text.DateFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -78,7 +79,7 @@ public class AppUtils {
     }
 
 
-    public void ShowDialog() {
+    public void ShowLoadingDialogue() {
         this.dialog = new ACProgressFlower.Builder(activity)
                 .direction(ACProgressConstant.DIRECT_ANTI_CLOCKWISE).themeColor(Color.WHITE)
                 .text("الرجاء الانتظار").fadeColor(Color.DKGRAY).build();
@@ -97,6 +98,8 @@ public class AppUtils {
         snackbarView.setTextDirection(View.TEXT_DIRECTION_RTL);
         snackbar.show();
     }
+
+
 
 
 }

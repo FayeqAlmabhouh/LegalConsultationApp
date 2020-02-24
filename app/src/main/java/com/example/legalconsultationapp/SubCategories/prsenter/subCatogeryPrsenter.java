@@ -15,7 +15,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,21 +27,22 @@ public class subCatogeryPrsenter {
     private Activity activity;
     private AppUtils appUtils;
     private subCatogeryModel model;
-    private String catogeryKey;
+    private String catogeryKey = "";
     private ConstantPage constantPage;
 
 
     public subCatogeryPrsenter(Activity activity) {
         this.activity = activity;
         this.constantPage = new ConstantPage(this.activity);
-        this.catogeryKey = CatogeryStructure.SelectedCatogery.getKey();
         this.appUtils = new AppUtils(this.activity);
         this.model = new subCatogeryModel();
     }
 
     public void getSubCatogeryPost(RecyclerView recyclerView) {
-        appUtils.ShowDialog();
+        this.catogeryKey = CatogeryStructure.SelectedCatogery.getKey();
+        appUtils.ShowLoadingDialogue();
         List<subCatogeryStructure> Listdata = new ArrayList<>();
+
         this.model.getSubCatogeryData().child(this.catogeryKey).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -71,7 +74,7 @@ public class subCatogeryPrsenter {
         constantPage.OpenSerchPage();
     }
 
-    public String getSubCatogeryTitel() {
+    public String getCatogeryTitel() {
         return CatogeryStructure.SelectedCatogery.getTitle();
     }
 

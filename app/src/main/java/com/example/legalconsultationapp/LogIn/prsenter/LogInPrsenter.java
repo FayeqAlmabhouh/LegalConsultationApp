@@ -75,7 +75,7 @@ public class LogInPrsenter {
         if (CheckeInternetConection == false)
             appUtils.SnackbareStyle(constantVariable.getNoInternet());
         if (CheckUserDta && CheckeInternetConection == true) {
-            appUtils.ShowDialog();
+            appUtils.ShowLoadingDialogue();
             Task task = logInModel.LogIn(email, password);
             task.addOnCompleteListener(new OnCompleteListener() {
                 @Override

@@ -42,7 +42,7 @@ public class EditeProfilePrsenter {
     }
 
     public void SaveNewUserData(String name, String Phonumper) {
-        appUtils.ShowDialog();
+        appUtils.ShowLoadingDialogue();
         if (appUtils.checkConnection() == false) {
             appUtils.SnackbareStyle(constantVariable.getNoInternet());
             appUtils.dialogDismiss();

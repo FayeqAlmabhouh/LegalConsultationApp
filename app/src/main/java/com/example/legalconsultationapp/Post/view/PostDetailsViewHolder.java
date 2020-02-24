@@ -26,6 +26,13 @@ public class PostDetailsViewHolder {
     protected ImageView postImg;
     @BindView(R.id.post_det_Content)
     protected TextView postContent;
-
+    @BindView(R.id.post_det_flag)
+    protected TextView homePage;
+    @BindView(R.id.post_det_title)
+    protected TextView postTitel;
+    @BindView(R.id.post_det_Free_Advice)
+    protected ImageView freeAdvice;
+    @BindView(R.id.post_det_Contact_Lawyer)
+    protected ImageView ContactLawyer;
 
 }

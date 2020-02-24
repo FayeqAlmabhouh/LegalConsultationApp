@@ -12,5 +12,8 @@ public class RequestFreeAdvice extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.request_free_advice_activity);
+
+
     }
+
 }

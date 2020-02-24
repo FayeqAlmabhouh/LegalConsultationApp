@@ -1,12 +1,14 @@
 package com.example.legalconsultationapp.SubCategories.model;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.legalconsultationapp.CatogeryModel.ClickListener;
 import com.example.legalconsultationapp.CatogeryModel.subCatogeryStructure;
+import com.example.legalconsultationapp.Post.view.AllPostActivity;
 import com.example.legalconsultationapp.R;
 import com.squareup.picasso.Picasso;
 
@@ -40,11 +42,12 @@ public class subCatogeryAdapter extends RecyclerView.Adapter<subCatogeryViewHold
         holder.setClickListener(new ClickListener() {
             @Override
             public void OnClick(View view) {
-
+                subCatogeryStructure.selectedSubCatogeryStructure = subCatogeryDaat.get(position);
+                Intent postPage = new Intent(activity.getApplicationContext(), AllPostActivity.class);
+                activity.startActivity(postPage);
+                activity.finish();
             }
         });
-
-
     }
 
     @Override

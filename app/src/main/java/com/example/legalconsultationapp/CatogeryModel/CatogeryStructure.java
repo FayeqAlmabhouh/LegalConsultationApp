@@ -15,7 +15,6 @@ public class CatogeryStructure {
     public CatogeryStructure() {
     }
 
-
     public CatogeryStructure(Long isActive, Long postCount, boolean haveSub, String image, long index, String key, String title) {
         IsActive = isActive;
         PostCount = postCount;
@@ -90,4 +89,6 @@ public class CatogeryStructure {
     public void setSelectedCatogery(CatogeryStructure selectedCatogery) {
         SelectedCatogery = selectedCatogery;
     }
+
+
 }

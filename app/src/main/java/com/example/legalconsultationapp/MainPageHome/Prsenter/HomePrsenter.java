@@ -38,7 +38,7 @@ public class HomePrsenter {
     }
 
     public void showCatogeryData(RecyclerView recyclerView) {
-        appUtils.ShowDialog();
+        appUtils.ShowLoadingDialogue();
         ArrayList<CatogeryStructure> catogeryStructuresData = new ArrayList<>();
         model.getCatogeryStructures().addValueEventListener(new ValueEventListener() {
             @Override

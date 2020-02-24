@@ -16,6 +16,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -40,6 +42,8 @@ public class DBOperation {
     private AuthCredential credential;
     private StorageReference storageReference;
     private FirebaseStorage storage;
+    private FirebaseFirestore db;
+
 
     public DBOperation() {
         this.firebaseAuth = FirebaseAuth.getInstance();
@@ -49,6 +53,7 @@ public class DBOperation {
         this.userData = new UserData();
         this.firebaseUser = firebaseAuth.getCurrentUser();
         this.storage = FirebaseStorage.getInstance();
+        this.db = FirebaseFirestore.getInstance();
     }
 
     public Task CreateNewUsers(String email, String password) {

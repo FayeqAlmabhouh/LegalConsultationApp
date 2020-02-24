@@ -123,7 +123,7 @@ public class SinUpPsenter {
     private void CreateAcount(UserInfo userInfo) {
         boolean checkInternet = appUtils.checkConnection();
         if (checkInternet == true) {
-            appUtils.ShowDialog();
+            appUtils.ShowLoadingDialogue();
             initUserData();
             Task task = sinUpModel.CreateAccount(userInfo);
             task.addOnCompleteListener(new OnCompleteListener() {
