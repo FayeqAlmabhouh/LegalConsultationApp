@@ -12,5 +12,6 @@
     <color name="nas">#E9DDC5</color>
     <color name="dark_gray">#4E4E4E</color>
     <color name="gray_leght">#BEBEBE</color>
+    <color name="gray_deg">#333333</color>
 
 </resources>

@@ -1,44 +1,44 @@
 package com.example.legalconsultationapp.Search.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import butterknife.ButterKnife;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 
 import com.example.legalconsultationapp.R;
 import com.example.legalconsultationapp.Search.Prsenter.SearchPresenter;
-import com.example.legalconsultationapp.SignUp.prsenter.SinUpViewFun;
+import com.example.legalconsultationapp.Search.Prsenter.SerchViewFun;
 
-public class SearchActivity extends AppCompatActivity {
+public class SearchActivity extends AppCompatActivity implements SerchViewFun {
 
-    private TextView vBacckbu;
     private SearchPresenter prsenter;
+    private SearchActivityViewHolder viewHolder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_activity);
-        initView();
-        initListener();
-        initPresenter();
+        ButterKnife.bind(this);
+        intlOnStart();
+        intlVariable();
+
     }
 
-    private void initPresenter() {
-        prsenter = new SearchPresenter(this);
+    @Override
+    public void intlOnStart() {
+        this.prsenter = new SearchPresenter(this);
+        this.viewHolder = new SearchActivityViewHolder(this);
     }
 
-    private void initListener() {
-        vBacckbu.setOnClickListener(this::OnClick);
+    @Override
+    public void intlVariable() {
+        viewHolder.backBu.setOnClickListener(this::OnClick);
     }
 
-    private void initView() {
-        vBacckbu = findViewById(R.id.SBackBU);
-    }
-
+    @Override
     public void OnClick(View view) {
-        if (view == vBacckbu) {
+        if (view == viewHolder.backBu)
             prsenter.backButon();
-        }
     }
 }

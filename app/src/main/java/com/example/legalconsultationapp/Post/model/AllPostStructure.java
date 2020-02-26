@@ -8,25 +8,41 @@ public class AllPostStructure {
     private String description;
     private String image;
     private long index;
+    private String key;
     private String subCatId;
     private String title;
 
     public static AllPostStructure SelectedPostStructure = null;
 
-
-    public AllPostStructure
-            (String catId, long date, String desc, String description, String image, long index, String subCatId, String title) {
+    public AllPostStructure(String catId, long date, String desc, String description, String image, long index, String key, String subCatId, String title) {
         this.catId = catId;
         this.date = date;
         this.desc = desc;
         this.description = description;
         this.image = image;
         this.index = index;
+        this.key = key;
         this.subCatId = subCatId;
         this.title = title;
     }
 
     public AllPostStructure() {
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public static AllPostStructure getSelectedPostStructure() {
+        return SelectedPostStructure;
+    }
+
+    public static void setSelectedPostStructure(AllPostStructure selectedPostStructure) {
+        SelectedPostStructure = selectedPostStructure;
     }
 
     public String getCatId() {

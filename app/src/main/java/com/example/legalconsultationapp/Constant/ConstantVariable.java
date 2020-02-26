@@ -26,6 +26,13 @@ public class ConstantVariable {
     private final String DB_Categories_Root_Name = "Categories";
     private final String DB_SubCategories_Root_Name = "SubCategories";
     private final String DB_posts_Root_Name = "posts";
+    private final String DB_Favert_Root_Name = "Favorite";
+    private final String sh_Favourite_Post = "Favourite Post";
+
+
+    public String getSh_Favourite_Post() {
+        return sh_Favourite_Post;
+    }
 
     public String getDB_posts_Root_Name() {
         return DB_posts_Root_Name;
@@ -126,4 +133,10 @@ public class ConstantVariable {
     public String getKey_User_PhoneNumper() {
         return key_User_PhoneNumper;
     }
+
+    public String getDB_Favert_Root_Name() {
+        return DB_Favert_Root_Name;
+    }
+
+
 }

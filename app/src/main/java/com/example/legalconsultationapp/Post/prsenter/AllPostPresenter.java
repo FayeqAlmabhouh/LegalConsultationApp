@@ -32,7 +32,6 @@ public class AllPostPresenter {
         this.appUtils = new AppUtils(this.activity);
         this.constantPage = new ConstantPage(this.activity);
         this.model = new AllpostModel();
-        this.catId = subCatogeryStructure.selectedSubCatogeryStructure.getKey();
     }
 
     public void OpenSerchPage() {
@@ -46,6 +45,8 @@ public class AllPostPresenter {
     }
 
     public void printPost(RecyclerView recyclerView) {
+        this.catId = subCatogeryStructure.selectedSubCatogeryStructure.getKey();
+
         appUtils.ShowLoadingDialogue();
         List<AllPostStructure> listData = new ArrayList<>();
         this.model.getPostDetiles().child(this.catId).addValueEventListener(new ValueEventListener() {
@@ -83,5 +84,12 @@ public class AllPostPresenter {
         constantPage.setLawyerPage(this.activity);
         constantPage.openFreeAdvice();
     }
+
+
+
+
+
+
+
 
 }

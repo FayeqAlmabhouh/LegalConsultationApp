@@ -9,15 +9,14 @@ import butterknife.ButterKnife;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.example.legalconsultationapp.FavoritePage.Prsenter.FavertPresnter;
+import com.example.legalconsultationapp.FavoritePage.Prsenter.FavoritePresenter;
 import com.example.legalconsultationapp.FavoritePage.Prsenter.FavertViewFun;
 import com.example.legalconsultationapp.R;
 
 public class FaveratFragment extends Fragment implements FavertViewFun {
     private View root;
-    private FavertPresnter presnter;
+    private FavoritePresenter presnter;
     private favertPageViewHolder viewHolder;
 
     @Override
@@ -42,7 +41,7 @@ public class FaveratFragment extends Fragment implements FavertViewFun {
 
     @Override
     public void inlOnStart() {
-        this.presnter = new FavertPresnter(this.getActivity());
+        this.presnter = new FavoritePresenter(this.getActivity());
         this.viewHolder = new favertPageViewHolder(this.root);
     }
 }

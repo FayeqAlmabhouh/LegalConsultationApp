@@ -3,9 +3,9 @@ package com.example.legalconsultationapp.Post.view;
 import androidx.appcompat.app.AppCompatActivity;
 import butterknife.ButterKnife;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CompoundButton;
 
 import com.example.legalconsultationapp.Post.prsenter.AllPostFun;
 import com.example.legalconsultationapp.Post.prsenter.PostDetailsPrsenters;
@@ -13,20 +13,16 @@ import com.example.legalconsultationapp.R;
 
 public class PostDetails extends AppCompatActivity implements AllPostFun {
 
-
     private PostDetailsPrsenters prsenters;
     private PostDetailsViewHolder viewHolder;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.post_activity_detiles);
-
         ButterKnife.bind(this);
         intlOnStart();
         intlVariable();
-
     }
 
     @Override
@@ -42,9 +38,7 @@ public class PostDetails extends AppCompatActivity implements AllPostFun {
         this.prsenters.setPosDat(viewHolder.postImg, viewHolder.postDate, viewHolder.postTitel, viewHolder.postContent);
         this.viewHolder.ContactLawyer.setOnClickListener(this::OnClick);
         this.viewHolder.freeAdvice.setOnClickListener(this::OnClick);
-        this.viewHolder.favoriteBu.setOnClickListener(this::OnClick);
-
-
+        this.viewHolder.favoriteBu.setOnClickListener(this::faveriteBuListener);
     }
 
     @Override
@@ -57,7 +51,23 @@ public class PostDetails extends AppCompatActivity implements AllPostFun {
             prsenters.openContactLawyer();
         if (view == viewHolder.freeAdvice)
             prsenters.openFreeAdvice();
-        if (view == viewHolder.favoriteBu)
-            viewHolder.favoriteBu.setBackgroundResource(R.drawable.yaloow_star);
     }
+
+    public void faveriteBuListener(View v) {
+        this.viewHolder.favoriteBu.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    viewHolder.favoriteBu.setBackgroundResource(R.drawable.ic_star_is_click);
+                    prsenters.savePostInFavert();
+                } else {
+                    viewHolder.favoriteBu.setBackgroundResource(R.drawable.ic_star_no_click);
+                    prsenters.removePostFavert();
+                }
+            }
+        });
+    }
+
+
 }
+

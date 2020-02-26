@@ -37,7 +37,7 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_200sdp">
+        android:layout_height="@dimen/_190sdp">
 
         <ImageView
             android:id="@+id/post_det_image"
@@ -71,21 +71,21 @@
             android:paddingStart="@dimen/_5sdp"
             android:textAlignment="textStart" />
 
-        <ImageView
+        <ToggleButton
             android:id="@+id/post_det_favorite"
-            android:layout_width="@dimen/_27sdp"
-            android:layout_height="@dimen/_27sdp"
-            android:layout_gravity="end"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginEnd="@dimen/_5sdp"
-            android:src="@drawable/ic_star" />
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_margin="@dimen/_3sdp"
+            android:background="@drawable/ic_star_no_click"
+            android:textOff=" "
+            android:textOn="  " />
+
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1sp"
         android:background="@color/gray_leght" />
-
 
     <TextView
         android:id="@+id/post_det_title"

@@ -35,7 +35,7 @@ public class DBOperation {
     private DatabaseReference dbReference;
     private ConstantVariable constantVariable;
     private FirebaseDatabase mDataBase;
-    private String name, email, phoneNumber;
+    private String name, email, phoneNumber, userid;
     private UserPreferences userPreferences;
     private UserData userData;
     private FirebaseUser firebaseUser;
@@ -91,9 +91,11 @@ public class DBOperation {
                     name = dataSnapshot.child(constantVariable.getDB_UserName()).getValue().toString();
                     email = dataSnapshot.child(constantVariable.getDB_UserEmail()).getValue().toString();
                     phoneNumber = dataSnapshot.child(constantVariable.getDB_UserPhoneNumber()).getValue().toString();
+                    userid = dataSnapshot.child(constantVariable.getDB_UserID()).getValue().toString();
                     userData.setUserName(name);
                     userData.setEmail(email);
                     userData.setPhoneNumber(phoneNumber);
+                    userData.setUserid(userid);
                     userPreferences.SaveUserData(userData);
                 }
             }
@@ -123,7 +125,6 @@ public class DBOperation {
 
     public Task ChangePassword(String UserPass) {
         this.firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-
         return firebaseUser.updatePassword(UserPass);
     }
 
@@ -143,4 +144,17 @@ public class DBOperation {
     public DatabaseReference getPost() {
         return this.dbReference = FirebaseDatabase.getInstance().getReference().child(constantVariable.getDB_posts_Root_Name());
     }
+
+    public Task SaveFavertPost(String postId) {
+        this.id = firebaseAuth.getCurrentUser().getUid();
+        Map<String, String> FaverData = new HashMap<>();
+        FaverData.put(postId, postId);
+        return dbReference.child(constantVariable.getDB_Favert_Root_Name()).child(id).setValue(FaverData);
+    }
+
+    public Task removeFavertPost(String postId) {
+        return dbReference.child(constantVariable.getDB_Favert_Root_Name()).child(id).removeValue();
+    }
+
+
 }

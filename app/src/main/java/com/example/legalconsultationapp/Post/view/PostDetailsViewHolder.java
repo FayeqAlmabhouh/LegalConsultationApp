@@ -1,8 +1,10 @@
 package com.example.legalconsultationapp.Post.view;
 
 import android.app.Activity;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import com.example.legalconsultationapp.R;
 
@@ -35,6 +37,7 @@ public class PostDetailsViewHolder {
     @BindView(R.id.post_det_Contact_Lawyer)
     protected ImageView ContactLawyer;
     @BindView(R.id.post_det_favorite)
-    protected ImageView favoriteBu;
+    protected ToggleButton favoriteBu;
+
 
 }

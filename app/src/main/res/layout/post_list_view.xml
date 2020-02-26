@@ -17,8 +17,8 @@
 
         <ImageView
             android:id="@+id/view_post_img"
-            android:layout_width="@dimen/_70sdp"
-            android:layout_height="@dimen/_70sdp"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
             android:layout_alignParentStart="true"
             android:layout_marginTop="@dimen/_6sdp"
             android:scaleType="fitXY"

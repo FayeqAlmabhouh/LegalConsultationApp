@@ -4,17 +4,20 @@ import android.app.Activity;
 import android.content.Intent;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.legalconsultationapp.AppUtils.AppUtils;
 import com.example.legalconsultationapp.Constant.ConstantPage;
-import com.example.legalconsultationapp.LawyerContents.View.ContactLawyer;
-import com.example.legalconsultationapp.LawyerContents.View.RequestFreeAdvice;
 import com.example.legalconsultationapp.Post.model.AllPostStructure;
 import com.example.legalconsultationapp.Post.model.PostDetailModel;
 import com.example.legalconsultationapp.Post.view.AllPostActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.squareup.picasso.Picasso;
 
 import java.text.DateFormat;
+
+import androidx.annotation.NonNull;
 
 public class PostDetailsPrsenters {
 
@@ -54,8 +57,27 @@ public class PostDetailsPrsenters {
     }
 
     public void openFreeAdvice() {
-       constantPage.openFreeAdvice();
+        constantPage.openFreeAdvice();
     }
 
+    public void savePostInFavert() {
+        appUtils.ShowLoadingDialogue();
+        model.addFavertPost(AllPostStructure.SelectedPostStructure.getKey()).addOnCompleteListener(new OnCompleteListener() {
+            @Override
+            public void onComplete(@NonNull Task task) {
+                appUtils.dialogDismiss();
+            }
+        });
+    }
+
+    public void removePostFavert() {
+        appUtils.ShowLoadingDialogue();
+        model.removeFavertPost(AllPostStructure.SelectedPostStructure.getKey()).addOnCompleteListener(new OnCompleteListener() {
+            @Override
+            public void onComplete(@NonNull Task task) {
+                appUtils.dialogDismiss();
+            }
+        });
+    }
 
 }

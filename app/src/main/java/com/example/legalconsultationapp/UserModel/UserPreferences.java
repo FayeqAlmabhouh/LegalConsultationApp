@@ -21,6 +21,7 @@ public class UserPreferences {
         editor.putString(constantVariable.getKey_User_Email(), userData.getEmail());
         editor.putString(constantVariable.getKey_User_Name(), userData.getUserName());
         editor.putString(constantVariable.getKey_User_PhoneNumper(), userData.getPhoneNumber());
+        editor.putString(constantVariable.getDB_UserID(), userData.getUserid());
         editor.apply();
     }
 
@@ -46,11 +47,24 @@ public class UserPreferences {
         return false;
     }
 
+    public String getUserId() {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(constantVariable.getSHARED_PREF_NAME(), Context.MODE_PRIVATE);
+        return sharedPreferences.getString(constantVariable.getDB_UserID(), null);
+    }
+
     public void logOut() {
         SharedPreferences logOut = context.getSharedPreferences(constantVariable.getSHARED_PREF_NAME(), context.MODE_PRIVATE);
         SharedPreferences.Editor editor = logOut.edit();
         editor.clear();
         editor.apply();
     }
+
+    public void SaveUserLikedPost(boolean isFavourite) {
+        SharedPreferences saveUserPost = context.getSharedPreferences(constantVariable.getSh_Favourite_Post(), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = saveUserPost.edit();
+
+        editor.apply();
+    }
+
 
 }

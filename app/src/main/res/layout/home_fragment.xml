@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/pageLayout"
     android:background="@color/nas"
     tools:context=".MainPageHome.View.HomeFragment">
@@ -28,11 +29,15 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_3sdp"
         android:layout_marginEnd="@dimen/_10sdp"
         android:layoutDirection="rtl"
         android:padding="@dimen/_5sdp"
         android:scrollbars="none"
         android:textAlignment="center"
-        android:textDirection="rtl" />
+        android:textDirection="rtl"
+        tools:listitem="@layout/categories_view"
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+        app:spanCount="2"
+        />
 </LinearLayout>
