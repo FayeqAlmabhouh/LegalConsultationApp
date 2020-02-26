@@ -29,24 +29,29 @@
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:fontFamily="@font/ge_ss_light"
-                android:textSize="@dimen/_30sdp"
+                android:textSize="@dimen/_15sdp"
                 android:layout_gravity="top|center"
+                android:layout_marginTop="@dimen/_5sdp"
                 />
             <EditText
+                android:id="@+id/serchBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_5sdp"
                 android:layout_marginEnd="@dimen/_5sdp"
                 android:padding="@dimen/_5sdp"
                 android:textColorHint="@color/white"
-                android:hint="أدخل كلمة البحث هنا"
+                android:hint="@string/enter_search_world"
                 android:textColor="@color/white"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:background="@drawable/search_box_disein"
                 android:drawableStart="@drawable/ic_search"
                 android:drawablePadding="@dimen/_10sdp"
-                android:textSize="@dimen/_15sdp"
+                android:textSize="@dimen/_13sdp"
+                android:maxLines="1"
+                android:imeOptions="actionSearch"
+                android:imeActionLabel="@string/OK"
                 />
         </FrameLayout>
     </androidx.appcompat.widget.Toolbar>

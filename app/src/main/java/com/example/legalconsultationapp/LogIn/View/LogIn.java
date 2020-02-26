@@ -1,7 +1,6 @@
 package com.example.legalconsultationapp.LogIn.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import android.os.Bundle;
@@ -12,23 +11,19 @@ import com.example.legalconsultationapp.LogIn.prsenter.ViewFunPrsenter;
 import com.example.legalconsultationapp.R;
 
 public class LogIn extends AppCompatActivity implements ViewFunPrsenter {
-
     private LogInPrsenter prsenter;
     private logInViewHolder viewHolder;
-    private String email, pas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.log_in_activity);
         ButterKnife.bind(this);
-
         initOnStatrt();
-
         initVaripel();
 
-
     }
+
     @Override
     public void OnClick(View view) {
         initVaripel();

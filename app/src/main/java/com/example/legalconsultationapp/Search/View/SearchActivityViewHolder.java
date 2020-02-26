@@ -19,4 +19,7 @@ public class SearchActivityViewHolder {
     }
     @BindView(R.id.SBackBU)
     protected TextView backBu;
+
+
+
 }

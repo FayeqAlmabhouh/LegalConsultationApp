@@ -23,7 +23,6 @@ public class ForgetPassword extends AppCompatActivity implements ViewFunPrsenter
         setContentView(R.layout.forget_password_activity);
         initOnStatrt();
         initVaripel();
-
     }
 
     @Override
