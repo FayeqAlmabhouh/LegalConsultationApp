@@ -32,7 +32,7 @@
             android:layout_marginStart="@dimen/_8sdp"
             android:layout_toEndOf="@+id/view_post_img"
             android:fontFamily="@font/ge_ss_light"
-            android:text="@string/mainPage"
+            android:text=""
             android:textAlignment="textStart"
             android:textColor="@color/dark_gray"
             android:textSize="@dimen/_10sdp" />
@@ -48,7 +48,7 @@
             android:fontFamily="@font/ge_ss_ultra_light"
             android:maxLines="2"
             android:padding="@dimen/_2sdp"
-            android:text="@string/exapem_2"
+            android:text=""
             android:textAlignment="textStart"
             android:textColor="@color/gray_leght"
             android:textSize="@dimen/_9sdp" />

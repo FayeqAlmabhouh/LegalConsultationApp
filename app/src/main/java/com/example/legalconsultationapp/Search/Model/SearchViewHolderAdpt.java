@@ -1,4 +1,4 @@
-package com.example.legalconsultationapp.Post.model;
+package com.example.legalconsultationapp.Search.Model;
 
 import android.view.View;
 import android.widget.ImageView;
@@ -10,7 +10,7 @@ import com.example.legalconsultationapp.R;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class PostViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class SearchViewHolderAdpt extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     protected TextView postViewTitel;
     protected ImageView postViewImg;
@@ -18,7 +18,7 @@ public class PostViewHolder extends RecyclerView.ViewHolder implements View.OnCl
     protected TextView posViewDate;
     protected ClickListener clickListener;
 
-    public PostViewHolder(@NonNull View itemView) {
+    public SearchViewHolderAdpt(@NonNull View itemView) {
         super(itemView);
         this.postViewTitel = (TextView) itemView.findViewById(R.id.view_post_title);
         this.postViewImg = (ImageView) itemView.findViewById(R.id.view_post_img);
@@ -30,6 +30,7 @@ public class PostViewHolder extends RecyclerView.ViewHolder implements View.OnCl
     public void setClickListener(ClickListener clickListener) {
         this.clickListener = clickListener;
     }
+
 
     @Override
     public void onClick(View v) {
